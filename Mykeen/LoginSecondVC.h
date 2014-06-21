@@ -6,8 +6,6 @@
 //  Copyright (c) 2014 Mykeen. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
-
 @interface LoginSecondVC : UIViewController
 
 @end
