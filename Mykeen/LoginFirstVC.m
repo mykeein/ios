@@ -20,18 +20,31 @@
     [super viewDidLoad];
 
     NSUserDefaults *defaults=[NSUserDefaults standardUserDefaults];
-    [defaults setBool:YES forKey:mkNotFirstTime];
+    [defaults setBool:NO forKey:mkNotFirstTime];
     // [defaults setObject:numbers forKey:@"numberArray"];
 
     BOOL notFirstTime = [defaults boolForKey:mkNotFirstTime];
-    if (notFirstTime)
+    if (notFirstTime){
         [self performSegueWithIdentifier:@"LoginSecond" sender:self];
-    
+        return;
+    }
+    NSLog(@"sss");
+    self.firstTextField.delegate = self;
+    [self.firstTextField becomeFirstResponder];
 }
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
+- (IBAction)firstTextChanged:(id)sender {
+    [self textChanged];
 }
 
+- (IBAction)secondTextChanged:(id)sender {
+    [self textChanged];
+}
+
+-(void)textChanged{
+    if ([self.firstTextField.text isEqualToString:@""])
+        return;
+    if ([self.firstTextField.text isEqualToString:self.secondTextField.text])
+        NSLog(@"privet");
+}
 @end

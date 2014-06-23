@@ -8,4 +8,5 @@
 
 @interface LoginSecondVC : UIViewController
 
+@property (weak, nonatomic) IBOutlet UITextField *firstTextField;
 @end

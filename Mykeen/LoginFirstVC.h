@@ -6,6 +6,12 @@
 //  Copyright (c) 2014 Mykeen. All rights reserved.
 //
 
-@interface LoginFirstVC : UIViewController
+@interface LoginFirstVC : UIViewController <UITextFieldDelegate>
+
+
+@property (weak, nonatomic) IBOutlet UITextField *secondTextField;
+@property (weak, nonatomic) IBOutlet UITextField *firstTextField;
+- (IBAction)firstTextChanged:(id)sender;
+- (IBAction)secondTextChanged:(id)sender;
 
 @end
