@@ -30,7 +30,7 @@
     }
     NSLog(@"sss");
     self.firstTextField.delegate = self;
-    [self.firstTextField becomeFirstResponder];
+   // [self.firstTextField becomeFirstResponder];
 }
 
 - (IBAction)firstTextChanged:(id)sender {

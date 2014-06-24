@@ -22,6 +22,15 @@
 		544D978119562F67006C009B /* MykeenTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 544D978019562F67006C009B /* MykeenTests.m */; };
 		544D978D195636D7006C009B /* LoginFirstVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 544D978C195636D7006C009B /* LoginFirstVC.m */; };
 		544D9790195636EB006C009B /* LoginSecondVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 544D978F195636EB006C009B /* LoginSecondVC.m */; };
+		54E199F5195A3A0A00D2BB67 /* libGoogleAdMobAds.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 54E199F3195A3A0A00D2BB67 /* libGoogleAdMobAds.a */; };
+		54E199F6195A3A0A00D2BB67 /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = 54E199F4195A3A0A00D2BB67 /* README.txt */; };
+		54E199F9195A3B4300D2BB67 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54E199F8195A3B4300D2BB67 /* AdSupport.framework */; };
+		54E199FB195A3B4F00D2BB67 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54E199FA195A3B4F00D2BB67 /* AudioToolbox.framework */; };
+		54E199FD195A3B6200D2BB67 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54E199FC195A3B6200D2BB67 /* AVFoundation.framework */; };
+		54E199FF195A3B7B00D2BB67 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54E199FE195A3B7B00D2BB67 /* CoreTelephony.framework */; };
+		54E19A01195A3B8600D2BB67 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54E19A00195A3B8600D2BB67 /* MessageUI.framework */; };
+		54E19A03195A3B8C00D2BB67 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54E19A02195A3B8C00D2BB67 /* StoreKit.framework */; };
+		54E19A05195A3B9800D2BB67 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54E19A04195A3B9800D2BB67 /* SystemConfiguration.framework */; };
 		F790C883646D4F138A0E78B4 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 150E76F3DF3240A6B049FF3D /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -60,6 +69,27 @@
 		544D978E195636EB006C009B /* LoginSecondVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginSecondVC.h; sourceTree = "<group>"; };
 		544D978F195636EB006C009B /* LoginSecondVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginSecondVC.m; sourceTree = "<group>"; };
 		544D979219563D02006C009B /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
+		54E199E7195A3A0A00D2BB67 /* GADAdMobExtras.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADAdMobExtras.h; sourceTree = "<group>"; };
+		54E199E8195A3A0A00D2BB67 /* GADAdNetworkExtras.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADAdNetworkExtras.h; sourceTree = "<group>"; };
+		54E199E9195A3A0A00D2BB67 /* GADAdSize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADAdSize.h; sourceTree = "<group>"; };
+		54E199EA195A3A0A00D2BB67 /* GADBannerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADBannerView.h; sourceTree = "<group>"; };
+		54E199EB195A3A0A00D2BB67 /* GADBannerViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADBannerViewDelegate.h; sourceTree = "<group>"; };
+		54E199EC195A3A0A00D2BB67 /* GADInAppPurchase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADInAppPurchase.h; sourceTree = "<group>"; };
+		54E199ED195A3A0A00D2BB67 /* GADInAppPurchaseDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADInAppPurchaseDelegate.h; sourceTree = "<group>"; };
+		54E199EE195A3A0A00D2BB67 /* GADInterstitial.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADInterstitial.h; sourceTree = "<group>"; };
+		54E199EF195A3A0A00D2BB67 /* GADInterstitialDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADInterstitialDelegate.h; sourceTree = "<group>"; };
+		54E199F0195A3A0A00D2BB67 /* GADModules.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADModules.h; sourceTree = "<group>"; };
+		54E199F1195A3A0A00D2BB67 /* GADRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADRequest.h; sourceTree = "<group>"; };
+		54E199F2195A3A0A00D2BB67 /* GADRequestError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADRequestError.h; sourceTree = "<group>"; };
+		54E199F3195A3A0A00D2BB67 /* libGoogleAdMobAds.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libGoogleAdMobAds.a; sourceTree = "<group>"; };
+		54E199F4195A3A0A00D2BB67 /* README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
+		54E199F8195A3B4300D2BB67 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
+		54E199FA195A3B4F00D2BB67 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		54E199FC195A3B6200D2BB67 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		54E199FE195A3B7B00D2BB67 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		54E19A00195A3B8600D2BB67 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		54E19A02195A3B8C00D2BB67 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		54E19A04195A3B9800D2BB67 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,10 +97,18 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				54E19A05195A3B9800D2BB67 /* SystemConfiguration.framework in Frameworks */,
+				54E19A03195A3B8C00D2BB67 /* StoreKit.framework in Frameworks */,
+				54E19A01195A3B8600D2BB67 /* MessageUI.framework in Frameworks */,
+				54E199FF195A3B7B00D2BB67 /* CoreTelephony.framework in Frameworks */,
 				544D975819562F67006C009B /* CoreGraphics.framework in Frameworks */,
+				54E199FD195A3B6200D2BB67 /* AVFoundation.framework in Frameworks */,
+				54E199FB195A3B4F00D2BB67 /* AudioToolbox.framework in Frameworks */,
+				54E199F9195A3B4300D2BB67 /* AdSupport.framework in Frameworks */,
 				544D975A19562F67006C009B /* UIKit.framework in Frameworks */,
 				544D975619562F67006C009B /* Foundation.framework in Frameworks */,
 				F790C883646D4F138A0E78B4 /* libPods.a in Frameworks */,
+				54E199F5195A3A0A00D2BB67 /* libGoogleAdMobAds.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -110,6 +148,14 @@
 		544D975419562F67006C009B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				54E19A04195A3B9800D2BB67 /* SystemConfiguration.framework */,
+				54E19A02195A3B8C00D2BB67 /* StoreKit.framework */,
+				54E19A00195A3B8600D2BB67 /* MessageUI.framework */,
+				54E199FE195A3B7B00D2BB67 /* CoreTelephony.framework */,
+				54E199FC195A3B6200D2BB67 /* AVFoundation.framework */,
+				54E199FA195A3B4F00D2BB67 /* AudioToolbox.framework */,
+				54E199F8195A3B4300D2BB67 /* AdSupport.framework */,
+				54E199F7195A3A8E00D2BB67 /* AdMob */,
 				544D975519562F67006C009B /* Foundation.framework */,
 				544D975719562F67006C009B /* CoreGraphics.framework */,
 				544D975919562F67006C009B /* UIKit.framework */,
@@ -179,6 +225,27 @@
 				544D979219563D02006C009B /* Constants.h */,
 			);
 			name = Utils;
+			sourceTree = "<group>";
+		};
+		54E199F7195A3A8E00D2BB67 /* AdMob */ = {
+			isa = PBXGroup;
+			children = (
+				54E199E7195A3A0A00D2BB67 /* GADAdMobExtras.h */,
+				54E199E8195A3A0A00D2BB67 /* GADAdNetworkExtras.h */,
+				54E199E9195A3A0A00D2BB67 /* GADAdSize.h */,
+				54E199EA195A3A0A00D2BB67 /* GADBannerView.h */,
+				54E199EB195A3A0A00D2BB67 /* GADBannerViewDelegate.h */,
+				54E199EC195A3A0A00D2BB67 /* GADInAppPurchase.h */,
+				54E199ED195A3A0A00D2BB67 /* GADInAppPurchaseDelegate.h */,
+				54E199EE195A3A0A00D2BB67 /* GADInterstitial.h */,
+				54E199EF195A3A0A00D2BB67 /* GADInterstitialDelegate.h */,
+				54E199F0195A3A0A00D2BB67 /* GADModules.h */,
+				54E199F1195A3A0A00D2BB67 /* GADRequest.h */,
+				54E199F2195A3A0A00D2BB67 /* GADRequestError.h */,
+				54E199F3195A3A0A00D2BB67 /* libGoogleAdMobAds.a */,
+				54E199F4195A3A0A00D2BB67 /* README.txt */,
+			);
+			name = AdMob;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -262,6 +329,7 @@
 			files = (
 				544D976E19562F67006C009B /* Images.xcassets in Resources */,
 				544D976019562F67006C009B /* InfoPlist.strings in Resources */,
+				54E199F6195A3A0A00D2BB67 /* README.txt in Resources */,
 				544D976919562F67006C009B /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -446,6 +514,10 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Mykeen/Mykeen-Prefix.pch";
 				INFOPLIST_FILE = "Mykeen/Mykeen-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -460,6 +532,10 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Mykeen/Mykeen-Prefix.pch";
 				INFOPLIST_FILE = "Mykeen/Mykeen-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
