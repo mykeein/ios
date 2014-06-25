@@ -31,6 +31,7 @@
 		54E19A01195A3B8600D2BB67 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54E19A00195A3B8600D2BB67 /* MessageUI.framework */; };
 		54E19A03195A3B8C00D2BB67 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54E19A02195A3B8C00D2BB67 /* StoreKit.framework */; };
 		54E19A05195A3B9800D2BB67 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54E19A04195A3B9800D2BB67 /* SystemConfiguration.framework */; };
+		54E19A0B195AD9AD00D2BB67 /* TableVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 54E19A0A195AD9AD00D2BB67 /* TableVC.m */; };
 		F790C883646D4F138A0E78B4 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 150E76F3DF3240A6B049FF3D /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -90,6 +91,8 @@
 		54E19A00195A3B8600D2BB67 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		54E19A02195A3B8C00D2BB67 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		54E19A04195A3B9800D2BB67 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		54E19A09195AD9AD00D2BB67 /* TableVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableVC.h; sourceTree = "<group>"; };
+		54E19A0A195AD9AD00D2BB67 /* TableVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableVC.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -215,6 +218,8 @@
 				544D978C195636D7006C009B /* LoginFirstVC.m */,
 				544D978E195636EB006C009B /* LoginSecondVC.h */,
 				544D978F195636EB006C009B /* LoginSecondVC.m */,
+				54E19A09195AD9AD00D2BB67 /* TableVC.h */,
+				54E19A0A195AD9AD00D2BB67 /* TableVC.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -382,6 +387,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				54E19A0B195AD9AD00D2BB67 /* TableVC.m in Sources */,
 				544D9790195636EB006C009B /* LoginSecondVC.m in Sources */,
 				544D978D195636D7006C009B /* LoginFirstVC.m in Sources */,
 				544D976219562F67006C009B /* main.m in Sources */,
