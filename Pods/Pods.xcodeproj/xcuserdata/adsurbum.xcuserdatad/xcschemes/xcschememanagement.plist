@@ -4,6 +4,16 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>Pods-AFNetworking.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-DateTools.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-ObjectiveSugar.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -17,12 +27,22 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>15B8289991C1409A8FCB4631</key>
+		<key>4BBA1650B8C34D30AA1A6B34</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>94D95140F795404B98293C61</key>
+		<key>8DFEC045A43C45A89E33E991</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>9F7A196811774394900D7E01</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>FD07AA34DEF0426BB4F7D540</key>
 		<dict>
 			<key>primary</key>
 			<true/>

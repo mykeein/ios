@@ -12,4 +12,7 @@
 
 @property (strong, nonatomic) UIWindow *window;
 
+@property(nonatomic,retain) UINavigationController *loginNavigationController;
+@property(nonatomic,retain) UIViewController *loginViewController;
+
 @end

@@ -19,6 +19,14 @@
     [super viewDidLoad];
     self.navigationItem.hidesBackButton = YES;
     [self.firstTextField becomeFirstResponder];
+    
+    AppDelegate * appDelegate = [[UIApplication sharedApplication] delegate];
+    appDelegate.loginViewController = self;
+    appDelegate.loginNavigationController = self.navigationController;
+}
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    self.firstTextField.text = @"";
 }
 
 
