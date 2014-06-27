@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		54049F45195E0369005DE048 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 54049F44195E0369005DE048 /* MainViewController.m */; };
+		54049F48195E0736005DE048 /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 54049F47195E0736005DE048 /* Utils.m */; };
 		544D975619562F67006C009B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 544D975519562F67006C009B /* Foundation.framework */; };
 		544D975819562F67006C009B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 544D975719562F67006C009B /* CoreGraphics.framework */; };
 		544D975A19562F67006C009B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 544D975919562F67006C009B /* UIKit.framework */; };
@@ -31,7 +33,6 @@
 		54E19A01195A3B8600D2BB67 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54E19A00195A3B8600D2BB67 /* MessageUI.framework */; };
 		54E19A03195A3B8C00D2BB67 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54E19A02195A3B8C00D2BB67 /* StoreKit.framework */; };
 		54E19A05195A3B9800D2BB67 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54E19A04195A3B9800D2BB67 /* SystemConfiguration.framework */; };
-		54E19A0B195AD9AD00D2BB67 /* TableVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 54E19A0A195AD9AD00D2BB67 /* TableVC.m */; };
 		F790C883646D4F138A0E78B4 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 150E76F3DF3240A6B049FF3D /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -48,6 +49,10 @@
 /* Begin PBXFileReference section */
 		150E76F3DF3240A6B049FF3D /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		492AC8BE2B0244E2BDB5CAD4 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
+		54049F43195E0369005DE048 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
+		54049F44195E0369005DE048 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
+		54049F46195E0736005DE048 /* Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utils.h; sourceTree = "<group>"; };
+		54049F47195E0736005DE048 /* Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utils.m; sourceTree = "<group>"; };
 		544D975219562F67006C009B /* Mykeen.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mykeen.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		544D975519562F67006C009B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		544D975719562F67006C009B /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -91,8 +96,6 @@
 		54E19A00195A3B8600D2BB67 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		54E19A02195A3B8C00D2BB67 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		54E19A04195A3B9800D2BB67 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
-		54E19A09195AD9AD00D2BB67 /* TableVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableVC.h; sourceTree = "<group>"; };
-		54E19A0A195AD9AD00D2BB67 /* TableVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableVC.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -218,8 +221,8 @@
 				544D978C195636D7006C009B /* LoginFirstVC.m */,
 				544D978E195636EB006C009B /* LoginSecondVC.h */,
 				544D978F195636EB006C009B /* LoginSecondVC.m */,
-				54E19A09195AD9AD00D2BB67 /* TableVC.h */,
-				54E19A0A195AD9AD00D2BB67 /* TableVC.m */,
+				54049F43195E0369005DE048 /* MainViewController.h */,
+				54049F44195E0369005DE048 /* MainViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -228,6 +231,8 @@
 			isa = PBXGroup;
 			children = (
 				544D979219563D02006C009B /* Constants.h */,
+				54049F46195E0736005DE048 /* Utils.h */,
+				54049F47195E0736005DE048 /* Utils.m */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -387,10 +392,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				54E19A0B195AD9AD00D2BB67 /* TableVC.m in Sources */,
+				54049F45195E0369005DE048 /* MainViewController.m in Sources */,
 				544D9790195636EB006C009B /* LoginSecondVC.m in Sources */,
 				544D978D195636D7006C009B /* LoginFirstVC.m in Sources */,
 				544D976219562F67006C009B /* main.m in Sources */,
+				54049F48195E0736005DE048 /* Utils.m in Sources */,
 				544D976619562F67006C009B /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
