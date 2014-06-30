@@ -9,7 +9,10 @@
 #import <UIKit/UIKit.h>
 #import "GADBannerView.h"
 
-@interface MainViewController : UIViewController
+@interface MainViewController : UIViewController <UISearchDisplayDelegate, UITableViewDataSource, UITableViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UIView *bannerContainerView;
+
+- (IBAction)edit:(id)sender;
+
 @end

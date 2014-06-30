@@ -20,8 +20,7 @@
     [super viewDidLoad];
 
     NSUserDefaults *defaults=[NSUserDefaults standardUserDefaults];
-    [defaults setBool:NO forKey:mkNotFirstTime];
-    // [defaults setObject:numbers forKey:@"numberArray"];
+    [defaults setBool:YES forKey:mkNotFirstTime];
 
     BOOL notFirstTime = [defaults boolForKey:mkNotFirstTime];
     if (notFirstTime){
@@ -30,7 +29,7 @@
     }
     NSLog(@"sss");
     self.firstTextField.delegate = self;
-   // [self.firstTextField becomeFirstResponder];
+    [self.firstTextField becomeFirstResponder];
 }
 
 - (IBAction)firstTextChanged:(id)sender {
