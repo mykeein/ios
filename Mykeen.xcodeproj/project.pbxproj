@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		54049F45195E0369005DE048 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 54049F44195E0369005DE048 /* MainViewController.m */; };
 		54049F48195E0736005DE048 /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 54049F47195E0736005DE048 /* Utils.m */; };
+		542816DD196A0BC900B88CF2 /* NewItemVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 542816DC196A0BC900B88CF2 /* NewItemVC.m */; };
 		544D975619562F67006C009B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 544D975519562F67006C009B /* Foundation.framework */; };
 		544D975819562F67006C009B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 544D975719562F67006C009B /* CoreGraphics.framework */; };
 		544D975A19562F67006C009B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 544D975919562F67006C009B /* UIKit.framework */; };
@@ -56,6 +57,8 @@
 		54049F44195E0369005DE048 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 		54049F46195E0736005DE048 /* Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utils.h; sourceTree = "<group>"; };
 		54049F47195E0736005DE048 /* Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utils.m; sourceTree = "<group>"; };
+		542816DB196A0BC900B88CF2 /* NewItemVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewItemVC.h; sourceTree = "<group>"; };
+		542816DC196A0BC900B88CF2 /* NewItemVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewItemVC.m; sourceTree = "<group>"; };
 		544D975219562F67006C009B /* Mykeen.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mykeen.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		544D975519562F67006C009B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		544D975719562F67006C009B /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -233,6 +236,8 @@
 				544D978F195636EB006C009B /* LoginSecondVC.m */,
 				54049F43195E0369005DE048 /* MainViewController.h */,
 				54049F44195E0369005DE048 /* MainViewController.m */,
+				542816DB196A0BC900B88CF2 /* NewItemVC.h */,
+				542816DC196A0BC900B88CF2 /* NewItemVC.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -420,6 +425,7 @@
 				544D9790195636EB006C009B /* LoginSecondVC.m in Sources */,
 				544D978D195636D7006C009B /* LoginFirstVC.m in Sources */,
 				544DD8F919620FC7004D0125 /* ItemCell.m in Sources */,
+				542816DD196A0BC900B88CF2 /* NewItemVC.m in Sources */,
 				544D976219562F67006C009B /* main.m in Sources */,
 				54049F48195E0736005DE048 /* Utils.m in Sources */,
 				544DD8FC19620FD8004D0125 /* NewCell.m in Sources */,

@@ -20,6 +20,7 @@
 
 @implementation MainViewController
 
+
 -(void)viewDidLoad{
     [self showBanner];
 }
@@ -46,6 +47,17 @@
 
 - (IBAction)edit:(id)sender {
 }
+
+- (IBAction)newItemAction:(id)sender {
+    [self performSegueWithIdentifier:@"NewItemVC" sender:self];
+}
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    if ([segue.identifier isEqualToString:@"NewItemVC"]){
+        NewItemVC * n = segue.destinationViewController;
+        n.createItemDelegate = self;
+    }
+}
+
 -(void)showBanner{
     // Create a view of the standard size at the top of the screen.
     // Available AdSize constants are explained in GADAdSize.h.
@@ -69,5 +81,33 @@
     // the simulator as well as any devices you want to receive test ads.
     request.testDevices = @[ @"GAD_SIMULATOR_ID" ];
     [self.bannerView loadRequest:request];
+}
+
+
+#pragma mark - delegates
+-(void)createItemWithName:(NSString *)name withPass:(NSString *)pass withDescription:(NSString *)description{
+    Item *newItem = [[Item alloc] init];
+    newItem.name = name;
+    newItem.password = pass;
+    newItem.description = description;
+    
+    [self saveItemToDisk:newItem];
+    self.items = [self loadItemsFromDisk];
+    [self.tableView reloadData];
+}
+
+#pragma mark - disk
+- (void)saveItemToDisk:(Item*)item {
+    NSString *path = @"~/Documents/items";
+    path = [path stringByExpandingTildeInPath];
+
+    [NSKeyedArchiver archiveRootObject:@[item] toFile:path];
+}
+- (NSArray*)loadItemsFromDisk {
+    NSString *path = @"~/Documents/items";
+    path = [path stringByExpandingTildeInPath];
+
+    NSArray * arr = [NSKeyedUnarchiver unarchiveObjectWithFile:path];
+    return arr;
 }
 @end
