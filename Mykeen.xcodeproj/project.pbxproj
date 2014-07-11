@@ -148,7 +148,6 @@
 			children = (
 				544D975B19562F67006C009B /* Mykeen */,
 				544D977A19562F67006C009B /* MykeenTests */,
-				544D975419562F67006C009B /* Frameworks */,
 				544D975319562F67006C009B /* Products */,
 				492AC8BE2B0244E2BDB5CAD4 /* Pods.xcconfig */,
 			);
@@ -181,6 +180,7 @@
 				150E76F3DF3240A6B049FF3D /* libPods.a */,
 			);
 			name = Frameworks;
+			path = ..;
 			sourceTree = "<group>";
 		};
 		544D975B19562F67006C009B /* Mykeen */ = {
@@ -201,6 +201,7 @@
 		544D975C19562F67006C009B /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				544D975419562F67006C009B /* Frameworks */,
 				544D975D19562F67006C009B /* Mykeen-Info.plist */,
 				544D975E19562F67006C009B /* InfoPlist.strings */,
 				544D976119562F67006C009B /* main.m */,

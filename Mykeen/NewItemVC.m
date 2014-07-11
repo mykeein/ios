@@ -31,5 +31,33 @@
 }
 
 - (IBAction)generateButtonClick:(id)sender {
+    static NSString * az = @"abcdefghijklmnopqrstuvwxyz";
+    static NSString * AZ = @"ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    static NSString * numbers = @"0123456789";
+    
+    NSMutableString *letters = [NSMutableString stringWithCapacity: 200];
+    if (self.azSwitch.isOn)
+        [letters appendString:az];
+    if (self.AZSwitch.isOn)
+        [letters appendString:AZ];
+    if (self.numbersSwitch.isOn)
+        [letters appendString:numbers];
+    
+    if (![letters length])
+        self.pass.text = NSLocalizedString(@"select at least one checkbox", nil);
+    else
+        self.pass.text = [self randomStringWithLetters:letters];
+        
 }
+-(NSString*)randomStringWithLetters:(NSString*)letters{
+    
+    NSMutableString *randomString = [NSMutableString stringWithCapacity: 12];
+    
+    for (int i=0; i<12; i++) {
+        [randomString appendFormat: @"%C", [letters characterAtIndex: arc4random_uniform([letters length]) % [letters length]]];
+    }
+    
+    return randomString;
+}
+    
 @end
