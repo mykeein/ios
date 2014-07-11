@@ -13,7 +13,7 @@
 -(void)createItemWithTitle:(NSString *)title withUsername:(NSString *)username withPass:(NSString*)pass withNotes:(NSString*)notes;
 @end
 
-@interface NewItemVC : UIViewController
+@interface NewItemVC : UIViewController <UITextFieldDelegate>
 
 
 @property (weak, nonatomic) IBOutlet UITextField *itemTitle;

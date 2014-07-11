@@ -29,6 +29,18 @@
         [self.createItemDelegate createItemWithTitle:self.itemTitle.text withUsername:self.userName.text withPass:self.pass.text withNotes:self.notes.text];
     }];
 }
+-(BOOL)textFieldShouldReturn:(UITextField *)textField{
+    if (textField==self.itemTitle)
+        [self.userName becomeFirstResponder];
+    else if (textField==self.userName)
+        [self.pass becomeFirstResponder];
+    else if (textField==self.pass)
+        [self.notes becomeFirstResponder];
+    else if (textField==self.notes)
+        [self saveButtonAction:self];
+    
+    return YES;
+}
 
 - (IBAction)generateButtonClick:(id)sender {
     static NSString * az = @"abcdefghijklmnopqrstuvwxyz";
