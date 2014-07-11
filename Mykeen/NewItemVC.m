@@ -15,7 +15,7 @@
 @implementation NewItemVC
 
 -(void)viewDidAppear:(BOOL)animated{
-    [self.name becomeFirstResponder];
+    [self.itemTitle becomeFirstResponder];
 }
 
 - (IBAction)cancelButtonAction:(id)sender {
@@ -26,7 +26,10 @@
 
 - (IBAction)saveButtonAction:(id)sender {
     [self dismissViewControllerAnimated:YES completion:^{
-        [self.createItemDelegate createItemWithName:self.name.text withPass:self.pass.text withDescription:self.description.text];
+        [self.createItemDelegate createItemWithTitle:self.itemTitle.text withUsername:self.userName.text withPass:self.pass.text withNotes:self.notes.text];
     }];
+}
+
+- (IBAction)generateButtonClick:(id)sender {
 }
 @end

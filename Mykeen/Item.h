@@ -10,9 +10,10 @@
 
 @interface Item : NSObject <NSCoding>
 
-@property NSString *name;
+@property NSString *title;
+@property NSString *username;
 @property NSString *imageName;
-@property NSString *description;
+@property NSString *notes;
 @property NSString *password;
 
 @end

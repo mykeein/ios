@@ -12,16 +12,18 @@
 
 -(id)initWithCoder:(NSCoder *)aDecoder{
     if (self = [super init]) {
-        self.name = [aDecoder decodeObjectForKey:@"name"];
-        self.description = [aDecoder decodeObjectForKey:@"description"];
+        self.title = [aDecoder decodeObjectForKey:@"title"];
+        self.username = [aDecoder decodeObjectForKey:@"username"];
+        self.notes = [aDecoder decodeObjectForKey:@"notes"];
         self.password = [aDecoder decodeObjectForKey:@"password"];
         self.imageName = [aDecoder decodeObjectForKey:@"imageName"];
     }
     return self;
 }
 -(void)encodeWithCoder:(NSCoder *)aCoder{
-    [aCoder encodeObject:self.name forKey:@"name"];
-    [aCoder encodeObject:self.description forKey:@"description"];
+    [aCoder encodeObject:self.title forKey:@"title"];
+    [aCoder encodeObject:self.username forKey:@"username"];
+    [aCoder encodeObject:self.notes forKey:@"notes"];
     [aCoder encodeObject:self.password forKey:@"password"];
     [aCoder encodeObject:self.imageName forKey:@"imageName"];
 }

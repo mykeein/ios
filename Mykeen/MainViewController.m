@@ -23,6 +23,7 @@
 
 -(void)viewDidLoad{
     [self showBanner];
+    self.items = [self loadItemsFromDisk];
 }
 -(void)searchDisplayController:(UISearchDisplayController *)controller willShowSearchResultsTableView:(UITableView *)tableView
 {
@@ -39,7 +40,7 @@
         static NSString* itemCellIdentifier = @"ItemCell";
         ItemCell * cell = [tableView dequeueReusableCellWithIdentifier:itemCellIdentifier];
         Item * item = self.items[indexPath.row];
-        cell.nameLabel.text = item.name;
+        cell.nameLabel.text = item.title;
         
         return cell;
     }
@@ -85,11 +86,13 @@
 
 
 #pragma mark - delegates
--(void)createItemWithName:(NSString *)name withPass:(NSString *)pass withDescription:(NSString *)description{
+-(void)createItemWithTitle:(NSString *)title withUsername:(NSString *)username withPass:(NSString *)pass withNotes:(NSString *)notes
+{
     Item *newItem = [[Item alloc] init];
-    newItem.name = name;
+    newItem.title = title;
+    newItem.username = username;
     newItem.password = pass;
-    newItem.description = description;
+    newItem.notes = notes;
     
     [self saveItemToDisk:newItem];
     self.items = [self loadItemsFromDisk];
