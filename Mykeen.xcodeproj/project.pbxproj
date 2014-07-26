@@ -11,6 +11,10 @@
 		54049F48195E0736005DE048 /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 54049F47195E0736005DE048 /* Utils.m */; };
 		542816DD196A0BC900B88CF2 /* NewItemVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 542816DC196A0BC900B88CF2 /* NewItemVC.m */; };
 		544D00661983FB9E00B338D1 /* GlobalData.m in Sources */ = {isa = PBXBuildFile; fileRef = 544D00651983FB9E00B338D1 /* GlobalData.m */; };
+		544D006C1984341300B338D1 /* SettingsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 544D006B1984341300B338D1 /* SettingsCell.m */; };
+		544D006F1984345700B338D1 /* SettingsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 544D006E1984345700B338D1 /* SettingsVC.m */; };
+		544D00731984382200B338D1 /* testimage.png in Resources */ = {isa = PBXBuildFile; fileRef = 544D00711984382200B338D1 /* testimage.png */; };
+		544D00741984382200B338D1 /* testimage@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 544D00721984382200B338D1 /* testimage@2x.png */; };
 		544D975619562F67006C009B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 544D975519562F67006C009B /* Foundation.framework */; };
 		544D975819562F67006C009B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 544D975719562F67006C009B /* CoreGraphics.framework */; };
 		544D975A19562F67006C009B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 544D975919562F67006C009B /* UIKit.framework */; };
@@ -64,6 +68,12 @@
 		542816DC196A0BC900B88CF2 /* NewItemVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewItemVC.m; sourceTree = "<group>"; };
 		544D00641983FB9E00B338D1 /* GlobalData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GlobalData.h; sourceTree = "<group>"; };
 		544D00651983FB9E00B338D1 /* GlobalData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GlobalData.m; sourceTree = "<group>"; };
+		544D006A1984341300B338D1 /* SettingsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsCell.h; sourceTree = "<group>"; };
+		544D006B1984341300B338D1 /* SettingsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsCell.m; sourceTree = "<group>"; };
+		544D006D1984345700B338D1 /* SettingsVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsVC.h; sourceTree = "<group>"; };
+		544D006E1984345700B338D1 /* SettingsVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsVC.m; sourceTree = "<group>"; };
+		544D00711984382200B338D1 /* testimage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = testimage.png; sourceTree = "<group>"; };
+		544D00721984382200B338D1 /* testimage@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "testimage@2x.png"; sourceTree = "<group>"; };
 		544D975219562F67006C009B /* Mykeen.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mykeen.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		544D975519562F67006C009B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		544D975719562F67006C009B /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -152,6 +162,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		544D00701984381600B338D1 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				544D00711984382200B338D1 /* testimage.png */,
+				544D00721984382200B338D1 /* testimage@2x.png */,
+			);
+			name = Images;
+			sourceTree = "<group>";
+		};
 		544D974919562F67006C009B = {
 			isa = PBXGroup;
 			children = (
@@ -195,6 +214,7 @@
 		544D975B19562F67006C009B /* Mykeen */ = {
 			isa = PBXGroup;
 			children = (
+				544D00701984381600B338D1 /* Images */,
 				544DD8F619620F87004D0125 /* Views */,
 				544D979119563CEF006C009B /* Utils */,
 				544D978A195636AA006C009B /* Controllers */,
@@ -248,6 +268,8 @@
 				54049F44195E0369005DE048 /* MainViewController.m */,
 				542816DB196A0BC900B88CF2 /* NewItemVC.h */,
 				542816DC196A0BC900B88CF2 /* NewItemVC.m */,
+				544D006D1984345700B338D1 /* SettingsVC.h */,
+				544D006E1984345700B338D1 /* SettingsVC.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -277,6 +299,8 @@
 				544DD8FB19620FD8004D0125 /* NewCell.m */,
 				544DD94119621B6B004D0125 /* Item.h */,
 				544DD94219621B6B004D0125 /* Item.m */,
+				544D006A1984341300B338D1 /* SettingsCell.h */,
+				544D006B1984341300B338D1 /* SettingsCell.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -381,7 +405,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				544D00731984382200B338D1 /* testimage.png in Resources */,
 				544D976E19562F67006C009B /* Images.xcassets in Resources */,
+				544D00741984382200B338D1 /* testimage@2x.png in Resources */,
 				544D976019562F67006C009B /* InfoPlist.strings in Resources */,
 				54E199F6195A3A0A00D2BB67 /* README.txt in Resources */,
 				544D976919562F67006C009B /* Main.storyboard in Resources */,
@@ -436,6 +462,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				544D006C1984341300B338D1 /* SettingsCell.m in Sources */,
 				544DD94319621B6B004D0125 /* Item.m in Sources */,
 				544D00661983FB9E00B338D1 /* GlobalData.m in Sources */,
 				54049F45195E0369005DE048 /* MainViewController.m in Sources */,
@@ -446,6 +473,7 @@
 				542816DD196A0BC900B88CF2 /* NewItemVC.m in Sources */,
 				544D976219562F67006C009B /* main.m in Sources */,
 				54049F48195E0736005DE048 /* Utils.m in Sources */,
+				544D006F1984345700B338D1 /* SettingsVC.m in Sources */,
 				54B820DF197F18A700950904 /* NSData+Crypto.m in Sources */,
 				544DD8FC19620FD8004D0125 /* NewCell.m in Sources */,
 				544D976619562F67006C009B /* AppDelegate.m in Sources */,

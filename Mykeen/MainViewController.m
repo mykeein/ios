@@ -25,7 +25,13 @@
 }
 -(void)viewDidLoad{
     [self showBanner];
+    UIBarButtonItem * settingsButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"testimage"] style:UIBarButtonItemStylePlain target:self action:@selector(settingsClicked)];
+    self.navigationItem.rightBarButtonItems = @[settingsButton];
+    
     self.items = [self loadItemsFromDisk];
+}
+-(void)settingsClicked{
+    [self performSegueWithIdentifier:@"ShowSettings" sender:self];
 }
 -(void)searchDisplayController:(UISearchDisplayController *)controller willShowSearchResultsTableView:(UITableView *)tableView
 {

@@ -7,7 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "GADBannerView.h"
 #import "NewItemVC.h"
 
 @interface MainViewController : UIViewController <UISearchDisplayDelegate, UITableViewDataSource, UITableViewDelegate, CreateItemDelegate>
