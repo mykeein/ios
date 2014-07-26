@@ -105,16 +105,15 @@
     path = [path stringByExpandingTildeInPath];
 
     NSData * data = [NSKeyedArchiver archivedDataWithRootObject:@[item]];
-    //data encryptedDataWithPass:<#(NSString *)#> error:<#(NSError *__autoreleasing *)#>
-    //TODO use GCD
-    [data writeToFile:path atomically:YES];
-    [NSKeyedArchiver archiveRootObject:@[item] toFile:path];
+    NSData * encryptedData =[data encryptedDataWithPass:[Utils getPass] error:nil];
+    [encryptedData writeToFile:path atomically:YES];
 }
 - (NSArray*)loadItemsFromDisk {
     NSString *path = @"~/Documents/items";
     path = [path stringByExpandingTildeInPath];
-
-    NSArray * arr = [NSKeyedUnarchiver unarchiveObjectWithFile:path];
+    NSData * data = [NSData dataWithContentsOfFile:path];
+    NSData * decodedData = [data decryptedDataWithPass:[Utils getPass] error:nil];
+    NSArray * arr = [NSKeyedUnarchiver unarchiveObjectWithData:decodedData];
     return arr;
 }
 @end
