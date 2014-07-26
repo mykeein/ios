@@ -10,6 +10,9 @@
 #import "Constants.h"
 #import "DateTools.h"
 #import "Utils.h"
+#import "NSData+Crypto.h"
+#import "GlobalData.h"
+#import "SSKeychain.h"
 
 #ifndef __IPHONE_5_0
 #warning "This project uses features only available in iOS SDK 5.0 and later."

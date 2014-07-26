@@ -8,6 +8,7 @@
 
 #import "LoginFirstVC.h"
 #import "Constants.h"
+#import <Security/Security.h>
 
 @interface LoginFirstVC ()
 
@@ -18,13 +19,19 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [self updateButtonState];
+    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    SecItemAdd(<#CFDictionaryRef attributes#>, <#CFTypeRef *result#>)
+    NSString *pass = [SSKeychain passwordForService:@"Mykeen" account:@"me"];
 
-    NSUserDefaults *defaults=[NSUserDefaults standardUserDefaults];
-    [defaults setBool:YES forKey:mkNotFirstTime];
+
+    //[defaults setBool:YES forKey:mkNotFirstTime];
+    //[defaults removeObjectForKey:mkNotFirstTime];
 
     BOOL notFirstTime = [defaults boolForKey:mkNotFirstTime];
     if (notFirstTime){
-        [self performSegueWithIdentifier:@"LoginSecond" sender:self];
+        [self performSegueWithIdentifier:@"ShowSecondLogin" sender:self];
         return;
     }
     NSLog(@"sss");
@@ -40,10 +47,14 @@
     [self textChanged];
 }
 
+-(void)buttonClicked:(id)sender{
+    [self performSegueWithIdentifier:@"ShowSecondLogin" sender:self];
+}
+
+-(void)updateButtonState{
+    self.button.hidden = !self.firstTextField || [self.firstTextField.text isEqualToString:@""] || ![self.firstTextField.text isEqualToString:self.secondTextField.text];
+}
 -(void)textChanged{
-    if ([self.firstTextField.text isEqualToString:@""])
-        return;
-    if ([self.firstTextField.text isEqualToString:self.secondTextField.text])
-        NSLog(@"privet");
+    [self updateButtonState];
 }
 @end

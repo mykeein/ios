@@ -13,5 +13,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *firstTextField;
 - (IBAction)firstTextChanged:(id)sender;
 - (IBAction)secondTextChanged:(id)sender;
+- (IBAction)buttonClicked:(id)sender;
+@property (weak, nonatomic) IBOutlet UIButton *button;
 
 @end
