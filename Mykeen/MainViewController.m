@@ -20,7 +20,9 @@
 
 @implementation MainViewController
 
-
+-(void)viewWillAppear:(BOOL)animated{
+    self.navigationItem.hidesBackButton = YES;
+}
 -(void)viewDidLoad{
     [self showBanner];
     self.items = [self loadItemsFromDisk];
@@ -104,7 +106,9 @@
     NSString *path = @"~/Documents/items";
     path = [path stringByExpandingTildeInPath];
 
-    NSData * data = [NSKeyedArchiver archivedDataWithRootObject:@[item]];
+    NSMutableArray * arr = [self.items mutableCopy];
+    [arr addObject:item];
+    NSData * data = [NSKeyedArchiver archivedDataWithRootObject:arr];
     NSData * encryptedData =[data encryptedDataWithPass:[Utils getPass] error:nil];
     [encryptedData writeToFile:path atomically:YES];
 }
