@@ -10,5 +10,6 @@
 
 @interface LoginSecondVC : UIViewController
 
+- (IBAction)buttonClicked:(id)sender;
 @property (weak, nonatomic) IBOutlet UITextField *firstTextField;
 @end

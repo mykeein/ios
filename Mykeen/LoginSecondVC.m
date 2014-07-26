@@ -30,4 +30,16 @@
 }
 
 
+- (IBAction)buttonClicked:(id)sender {
+    NSString * reallPass = [Utils getPass];
+    NSString * enteredPass = self.firstTextField.text;
+    if ([reallPass isEqualToString:enteredPass])
+        [self performSegueWithIdentifier:@"ShowMainVC" sender:self];
+    else{
+        NSLocalizedString(@"Wrong Pass", nil);
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Wrong Pass", nil) message:nil delegate:nil cancelButtonTitle:NSLocalizedString(@"Ok for wrong pass", nil) otherButtonTitles:nil, nil];
+        [alert show];
+    }
+    
+}
 @end

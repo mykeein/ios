@@ -23,4 +23,11 @@
     view.frame = frame;
 }
 
++(NSString *)getPass{
+   return [SSKeychain passwordForService:@"Mykeen" account:@"me"];
+}
++(void)setPass:(NSString*)pass{
+    [SSKeychain setPassword:pass forService:@"Mykeen" account:@"me"];
+}
+
 @end

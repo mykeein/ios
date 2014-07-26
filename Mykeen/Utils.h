@@ -13,4 +13,7 @@
 +(void)forView:(UIView*)view addToX:(int)x addToY:(int)y;
 +(void)forView:(UIView*)view setX:(int)x setY:(int)y;
 
++(NSString*)getPass;
++(void)setPass:(NSString*)pass;
+
 @end

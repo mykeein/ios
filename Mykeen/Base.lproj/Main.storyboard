@@ -93,7 +93,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="6fw-m4-zUU" kind="push" id="lc2-r6-RCk"/>
+                                    <action selector="buttonClicked:" destination="QVN-Nu-o2W" eventType="touchUpInside" id="tHV-hf-3Qs"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -102,6 +102,7 @@
                     <navigationItem key="navigationItem" title="Second" id="6XR-jN-Mxq"/>
                     <connections>
                         <outlet property="firstTextField" destination="8Fd-MC-HHu" id="1jd-2T-o1m"/>
+                        <segue destination="6fw-m4-zUU" kind="push" identifier="ShowMainVC" id="nt8-hn-cbG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cfi-OB-vXI" userLabel="First Responder" sceneMemberID="firstResponder"/>
