@@ -25,7 +25,8 @@
     NSDictionary *parameters = @{@"email": @"ilia@adsurbum.com",@"registerId":@"reg"};
     
     NSLog(@"here");
-    [manager POST:@"http://localhost:3000/api/user/check?os=ios" parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject)
+    NSString * reqString = [NSString stringWithFormat:@"http://localhost:3000/api/user/check?os=ios&ln=%@",LANG];
+    [manager POST:reqString parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject)
     {
         NSLog(@"JSON: %@", responseObject);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
