@@ -19,6 +19,19 @@
 
 -(void)viewDidLoad{
     [super viewDidLoad];
+    
+    
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    NSDictionary *parameters = @{@"email": @"ilia@adsurbum.com",@"registerId":@"reg"};
+    
+    NSLog(@"here");
+    [manager POST:@"http://localhost:3000/api/user/check?os=ios" parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject)
+    {
+        NSLog(@"JSON: %@", responseObject);
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"Error: %@", error);
+    }];
+    
     self.tableView.scrollEnabled = NO;
     [self showBanner];
 }
