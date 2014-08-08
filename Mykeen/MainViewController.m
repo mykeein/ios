@@ -25,8 +25,16 @@
 }
 -(void)viewDidLoad{
     [self showBanner];
-    UIBarButtonItem * settingsButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"testimage"] style:UIBarButtonItemStylePlain target:self action:@selector(settingsClicked)];
+    UIBarButtonItem * settingsButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"edit_profile22"] style:UIBarButtonItemStylePlain target:self action:@selector(settingsClicked)];
+    
+    UIBarButtonItem * shareButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"share2"] style:UIBarButtonItemStylePlain target:self action:nil];
+    
+    UIImageView * logoImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"logo"]];
+    UIBarButtonItem * logoButton = [[UIBarButtonItem alloc] initWithCustomView:logoImageView];
+    //[[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"logo"] style:UIBarButtonItemStylePlain target:self action:nil];
+
     self.navigationItem.rightBarButtonItems = @[settingsButton];
+    self.navigationItem.leftBarButtonItems = @[shareButton, logoButton];
     
     self.items = [self loadItemsFromDisk];
 }
@@ -38,6 +46,8 @@
     NSLog(@"now");
 }
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    if (tableView!=self.tableView)
+        return 0;
     return [self.items count] + 1;
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
