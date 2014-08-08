@@ -25,13 +25,17 @@
     [manager POST:reqString parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject)
      {
          if ([responseObject[@"status"] isEqualToString:@"send_approve_email_failed"]){
+             [Utils setApproved:NO];
              NSString * wrongEmailString = NSLocalizedString(@"failedToSendApprovalEmail", nil);
              self.notApprovedButton.titleLabel.text = wrongEmailString;
              self.notApprovedButton.hidden = NO;
          }else if([responseObject[@"status"] isEqualToString:@"not_approved"]){
+             [Utils setApproved:NO];
              NSString * notApprovedString = NSLocalizedString(@"notApproved", nil);
              self.notApprovedButton.titleLabel.text = notApprovedString;
              self.notApprovedButton.hidden = NO;
+         }else if ([responseObject[@"status"] isEqualToString:@"success"]){
+             [Utils setApproved:YES];
          }
          NSLog(@"JSON: %@", responseObject);
      } failure:^(AFHTTPRequestOperation *operation, NSError *error) {

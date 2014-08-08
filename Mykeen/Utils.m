@@ -29,6 +29,15 @@
 +(void)setPass:(NSString*)pass{
     [SSKeychain setPassword:pass forService:@"Mykeen" account:@"me"];
 }
++(void)setApproved:(BOOL)approved{
+    NSUserDefaults * userDefaults = [NSUserDefaults standardUserDefaults];
+    [userDefaults setBool:approved forKey:@"approved"];
+}
+
++(BOOL)getApproved{
+    NSUserDefaults * userDefaults = [NSUserDefaults standardUserDefaults];
+    return [userDefaults boolForKey:@"approved"];
+}
 
 +(NSString *)getEmail{
     NSUserDefaults * userDefaults = [NSUserDefaults standardUserDefaults];

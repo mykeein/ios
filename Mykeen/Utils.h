@@ -13,6 +13,9 @@
 +(void)forView:(UIView*)view addToX:(int)x addToY:(int)y;
 +(void)forView:(UIView*)view setX:(int)x setY:(int)y;
 
++(BOOL)getApproved;
++(void)setApproved:(BOOL)approved;
+
 +(NSString*)getEmail;
 +(void)setEmail:(NSString*)email;
 
