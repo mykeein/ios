@@ -8,11 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SettingsVC : UIViewController <UITableViewDataSource, UITableViewDelegate>
+@interface SettingsVC : UIViewController
 
 - (IBAction)changeButtonClicked:(id)sender;
 - (IBAction)notApprovedButtonClicked:(id)sender;
 
-@property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) IBOutlet UIButton *notApprovedButton;
 
 @end

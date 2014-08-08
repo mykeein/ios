@@ -30,4 +30,30 @@
     [SSKeychain setPassword:pass forService:@"Mykeen" account:@"me"];
 }
 
++(NSString *)getEmail{
+    NSUserDefaults * userDefaults = [NSUserDefaults standardUserDefaults];
+    NSString * email = [userDefaults objectForKey:@"email"];
+    return email;
+}
++(void)setEmail:(NSString *)email{
+    NSUserDefaults * userDefaults = [NSUserDefaults standardUserDefaults];
+    [userDefaults setObject:email forKey:@"email"];
+}
+
++ (NSString *)uuid
+{
+    NSUserDefaults * userDefaults = [NSUserDefaults standardUserDefaults];
+    NSString * uuidString = [userDefaults objectForKey:@"uuid"];
+    if (uuidString)
+        return uuidString;
+    
+    CFUUIDRef uuid = CFUUIDCreate(NULL);
+    if (uuid) {
+        uuidString = (NSString *)CFBridgingRelease(CFUUIDCreateString(NULL, uuid));
+        CFRelease(uuid);
+    }
+    [userDefaults setObject:uuidString forKey:@"uuid"];
+    return uuidString;
+}
+
 @end

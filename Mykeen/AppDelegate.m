@@ -16,8 +16,39 @@
 
 @implementation AppDelegate
 
+-(void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error{
+    NSLog(@"failed to register for remote notifications");
+}
+- (void)application:(UIApplication *)app didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)devToken {
+    NSLog(@"My token is: %@", devToken);
+    NSLog(@"my uuid is: %@",[Utils uuid]);
+    
+    NSString *strDevToken = [[NSString alloc]initWithFormat:@"%@",[[[devToken description]
+                                                                    stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"<>"]]
+                                                                   stringByReplacingOccurrencesOfString:@" "
+                                                                   withString:@""]];
+    NSLog(@"%@",strDevToken);
+    
+//    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@/pushnotification/register?token=%@&uuid=%@&os=ios&lang=%@&v=%@", LIVEWALLS_URL, strDevToken, [self uuid],[[NSLocale preferredLanguages] objectAtIndex:0],kAppVersion]];
+//    
+//    NSLog(@"%@",url);
+//    NSHTTPURLResponse * response;
+//    NSError * error;
+//    NSMutableURLRequest *request;
+//    
+//    request = [[NSMutableURLRequest alloc] initWithURL:url];
+//    NSOperationQueue *queue = [[NSOperationQueue alloc] init];
+//    [NSURLConnection sendAsynchronousRequestWithWolfloToken:request queue:queue completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
+//        NSLog(@"push error");
+//    }];
+}
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    [Utils uuid]; //initializing uuid
+    
+    [[UIApplication sharedApplication] registerForRemoteNotificationTypes:(UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeNone)];
+
     // Override point for customization after application launch.
     return YES;
 }

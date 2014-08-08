@@ -17,32 +17,45 @@
 
 @implementation SettingsVC
 
+-(void)checkForButtonStatus{
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    NSDictionary *parameters = @{@"email": [Utils getEmail],@"registerId":[Utils uuid]};
+    
+    NSString * reqString = [NSString stringWithFormat:@"http://localhost:3000/api/user/check?os=ios&ln=%@",LANG];
+    [manager POST:reqString parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject)
+     {
+         if ([responseObject[@"status"] isEqualToString:@"send_approve_email_failed"]){
+             NSString * wrongEmailString = NSLocalizedString(@"failedToSendApprovalEmail", nil);
+             self.notApprovedButton.titleLabel.text = wrongEmailString;
+             self.notApprovedButton.hidden = NO;
+         }else if([responseObject[@"status"] isEqualToString:@"not_approved"]){
+             NSString * notApprovedString = NSLocalizedString(@"notApproved", nil);
+             self.notApprovedButton.titleLabel.text = notApprovedString;
+             self.notApprovedButton.hidden = NO;
+         }
+         NSLog(@"JSON: %@", responseObject);
+     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+         NSLog(@"Error: %@", error);
+     }];
+    
+    //self.tableView.scrollEnabled = NO;
+}
 -(void)viewDidLoad{
     [super viewDidLoad];
     
+    self.notApprovedButton.hidden = YES;
+    [Utils setEmail:@"adsurbum@gmail.com"];
+    NSString * email = [Utils getEmail];
+    if (!email){
+        NSString * noEmailString = NSLocalizedString(@"noEmail", nil);
+        self.notApprovedButton.titleLabel.text = noEmailString;
+        self.notApprovedButton.hidden = NO;
+    }else{
+        [self checkForButtonStatus];
+    }
+
     
-    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    NSDictionary *parameters = @{@"email": @"ilia@adsurbum.com",@"registerId":@"reg"};
-    
-    NSLog(@"here");
-    NSString * reqString = [NSString stringWithFormat:@"http://localhost:3000/api/user/check?os=ios&ln=%@",LANG];
-    [manager POST:reqString parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject)
-    {
-        NSLog(@"JSON: %@", responseObject);
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        NSLog(@"Error: %@", error);
-    }];
-    
-    self.tableView.scrollEnabled = NO;
     [self showBanner];
-}
--(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 1;
-}
--(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    static NSString* settingsIdentifier = @"SettingsCell";
-    SettingsCell * cell = [tableView dequeueReusableCellWithIdentifier:settingsIdentifier];
-    return cell;
 }
 
 - (IBAction)changeButtonClicked:(id)sender {
