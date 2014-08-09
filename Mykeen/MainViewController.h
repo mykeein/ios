@@ -22,4 +22,7 @@
 @property (weak, nonatomic) IBOutlet UIView *noEmailView;
 - (IBAction)settingsButtonClicked:(id)sender;
 
+- (IBAction)ignoreRequestAction:(id)sender;
+- (IBAction)sendRequestAction:(id)sender;
+
 @end

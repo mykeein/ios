@@ -10,11 +10,13 @@
 #import "Item.h"
 #import "ItemCell.h"
 #import "NewCell.h"
+#import "RequestCell.h"
 
 @interface MainViewController ()
 
 @property (nonatomic, retain) GADBannerView *bannerView;
 @property NSArray *items;
+@property NSArray *requests;
 
 @end
 
@@ -56,11 +58,21 @@
         return 0;
     
     if (self.segmentedControl.selectedSegmentIndex == 1)
-        return 0;
+        return [self.requests count];
     
     return [self.items count] + 1;
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    if (self.segmentedControl.selectedSegmentIndex == 1){
+        static NSString* requestCellIdentifier = @"RequestCell";
+        RequestCell * cell = [tableView dequeueReusableCellWithIdentifier:requestCellIdentifier];
+        NSDictionary * request = self.requests[indexPath.row];
+        cell.ip.text = request[@"ip"];
+        NSDate * date = [Utils dateForRFC3339DateTimeString:request[@"updated"]];
+        cell.date.text = [date timeAgoSinceNow];
+        return cell;
+
+    }
     if (indexPath.row == [self.items count]){
         static NSString* newCellIdentifier = @"NewCell";
         return [tableView dequeueReusableCellWithIdentifier:newCellIdentifier];
@@ -72,6 +84,12 @@
         
         return cell;
     }
+}
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    if (self.segmentedControl.selectedSegmentIndex == 1)
+        return 69;
+    else
+        return 44;
 }
 
 - (IBAction)edit:(id)sender {
@@ -153,15 +171,32 @@
             self.noEmailView.hidden = NO;
         else
             self.noEmailView.hidden = YES;
+        
+        AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+        NSDictionary *parameters = @{@"email": [Utils getEmail]};
+        
+        NSString * reqString = [NSString stringWithFormat:@"http://localhost:3000/api/requests/load?os=ios&ln=%@",LANG];
+        [manager POST:reqString parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject)
+         {
+             self.requests = responseObject;
+             [self.tableView reloadData];
+         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+             NSLog(@"Error: %@", error);
+         }];
     }
     else {
         self.noEmailView.hidden = YES;
         [self.tableView setTableHeaderView:[[self searchDisplayController] searchBar]];
+        [self.tableView reloadData];
     }
-    
-    [self.tableView reloadData];
 }
 - (IBAction)settingsButtonClicked:(id)sender {
     [self performSegueWithIdentifier:@"ShowSettings" sender:self];
+}
+
+- (IBAction)ignoreRequestAction:(id)sender {
+}
+
+- (IBAction)sendRequestAction:(id)sender {
 }
 @end

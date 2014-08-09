@@ -93,6 +93,8 @@
 		5441A117199543CA0003BB39 /* share2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5441A116199543CA0003BB39 /* share2@2x.png */; };
 		5441A119199544AC0003BB39 /* edit_profile22@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5441A118199544AC0003BB39 /* edit_profile22@2x.png */; };
 		5441A11B199546580003BB39 /* logo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5441A11A199546580003BB39 /* logo@2x.png */; };
+		5441A11E199671270003BB39 /* RequestCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5441A11D199671270003BB39 /* RequestCell.m */; };
+		5441A121199672630003BB39 /* Request.m in Sources */ = {isa = PBXBuildFile; fileRef = 5441A120199672630003BB39 /* Request.m */; };
 		544D00661983FB9E00B338D1 /* GlobalData.m in Sources */ = {isa = PBXBuildFile; fileRef = 544D00651983FB9E00B338D1 /* GlobalData.m */; };
 		544D006C1984341300B338D1 /* SettingsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 544D006B1984341300B338D1 /* SettingsCell.m */; };
 		544D006F1984345700B338D1 /* SettingsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 544D006E1984345700B338D1 /* SettingsVC.m */; };
@@ -232,6 +234,10 @@
 		5441A116199543CA0003BB39 /* share2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "share2@2x.png"; sourceTree = "<group>"; };
 		5441A118199544AC0003BB39 /* edit_profile22@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "edit_profile22@2x.png"; sourceTree = "<group>"; };
 		5441A11A199546580003BB39 /* logo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo@2x.png"; sourceTree = "<group>"; };
+		5441A11C199671270003BB39 /* RequestCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RequestCell.h; sourceTree = "<group>"; };
+		5441A11D199671270003BB39 /* RequestCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RequestCell.m; sourceTree = "<group>"; };
+		5441A11F199672630003BB39 /* Request.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Request.h; sourceTree = "<group>"; };
+		5441A120199672630003BB39 /* Request.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Request.m; sourceTree = "<group>"; };
 		544D00641983FB9E00B338D1 /* GlobalData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GlobalData.h; sourceTree = "<group>"; };
 		544D00651983FB9E00B338D1 /* GlobalData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GlobalData.m; sourceTree = "<group>"; };
 		544D006A1984341300B338D1 /* SettingsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsCell.h; sourceTree = "<group>"; };
@@ -550,6 +556,10 @@
 				544DD94219621B6B004D0125 /* Item.m */,
 				544D006A1984341300B338D1 /* SettingsCell.h */,
 				544D006B1984341300B338D1 /* SettingsCell.m */,
+				5441A11C199671270003BB39 /* RequestCell.h */,
+				5441A11D199671270003BB39 /* RequestCell.m */,
+				5441A11F199672630003BB39 /* Request.h */,
+				5441A120199672630003BB39 /* Request.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -795,10 +805,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				544D006C1984341300B338D1 /* SettingsCell.m in Sources */,
+				5441A11E199671270003BB39 /* RequestCell.m in Sources */,
 				544DD94319621B6B004D0125 /* Item.m in Sources */,
 				544D00661983FB9E00B338D1 /* GlobalData.m in Sources */,
 				54049F45195E0369005DE048 /* MainViewController.m in Sources */,
 				544D9790195636EB006C009B /* LoginSecondVC.m in Sources */,
+				5441A121199672630003BB39 /* Request.m in Sources */,
 				544D978D195636D7006C009B /* LoginFirstVC.m in Sources */,
 				54B820E2197F18F100950904 /* NSString+Crypto.m in Sources */,
 				544DD8F919620FC7004D0125 /* ItemCell.m in Sources */,
