@@ -22,6 +22,9 @@
 
 -(void)viewWillAppear:(BOOL)animated{
     self.navigationItem.hidesBackButton = YES;
+    if ([self.segmentedControl selectedSegmentIndex] == 1) {
+        [self segmentChanged:self]; //reload no email status
+    }
 }
 -(void)viewDidLoad{
     [self showBanner];
@@ -40,6 +43,7 @@
     
     self.items = [self loadItemsFromDisk];
 }
+
 -(void)settingsClicked{
     [self performSegueWithIdentifier:@"ShowSettings" sender:self];
 }
@@ -147,6 +151,8 @@
         [self.tableView setTableHeaderView:nil];
         if (![Utils getApproved])
             self.noEmailView.hidden = NO;
+        else
+            self.noEmailView.hidden = YES;
     }
     else {
         self.noEmailView.hidden = YES;
@@ -154,5 +160,8 @@
     }
     
     [self.tableView reloadData];
+}
+- (IBAction)settingsButtonClicked:(id)sender {
+    [self performSegueWithIdentifier:@"ShowSettings" sender:self];
 }
 @end

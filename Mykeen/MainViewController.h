@@ -20,5 +20,6 @@
 @property (weak, nonatomic) IBOutlet UISegmentedControl *segmentedControl;
 - (IBAction)segmentChanged:(id)sender;
 @property (weak, nonatomic) IBOutlet UIView *noEmailView;
+- (IBAction)settingsButtonClicked:(id)sender;
 
 @end
