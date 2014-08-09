@@ -411,11 +411,15 @@
                                 <segment title="Keys"/>
                                 <segment title="Requests"/>
                             </segments>
+                            <connections>
+                                <action selector="segmentChanged:" destination="6fw-m4-zUU" eventType="valueChanged" id="9DX-6j-si2"/>
+                            </connections>
                         </segmentedControl>
                     </navigationItem>
                     <connections>
                         <outlet property="bannerContainerView" destination="O8Y-Ew-CmV" id="aC5-RA-DGE"/>
                         <outlet property="searchDisplayController" destination="MKL-2O-82K" id="751-Uu-wpL"/>
+                        <outlet property="segmentedControl" destination="zia-bN-rvO" id="60e-hG-piJ"/>
                         <outlet property="tableView" destination="ejY-YF-tvu" id="ms1-vS-sg9"/>
                         <segue destination="8Nu-To-LBE" kind="modal" identifier="NewItemVC" id="if1-RA-Nrr"/>
                         <segue destination="sBQ-io-5qY" kind="push" identifier="ShowSettings" id="M4u-CI-2dA"/>

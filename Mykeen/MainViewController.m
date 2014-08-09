@@ -48,6 +48,10 @@
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     if (tableView!=self.tableView)
         return 0;
+    
+    if (self.segmentedControl.selectedSegmentIndex == 1)
+        return 0;
+    
     return [self.items count] + 1;
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -135,5 +139,15 @@
     NSData * decodedData = [data decryptedDataWithPass:[Utils getPass] error:nil];
     NSArray * arr = [NSKeyedUnarchiver unarchiveObjectWithData:decodedData];
     return arr;
+}
+- (IBAction)segmentChanged:(id)sender {
+    if ([self.segmentedControl selectedSegmentIndex] == 1) {
+        [self.tableView setTableHeaderView:nil];
+    }
+    else {
+        [self.tableView setTableHeaderView:[[self searchDisplayController] searchBar]];
+    }
+    
+    [self.tableView reloadData];
 }
 @end
