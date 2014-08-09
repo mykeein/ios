@@ -396,6 +396,20 @@
                                             <outlet property="delegate" destination="6fw-m4-zUU" id="LZQ-Ky-vhg"/>
                                         </connections>
                                     </tableView>
+                                    <view contentMode="scaleToFill" id="Xpo-xf-fBT">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="450"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <subviews>
+                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="qmj-oM-eZb">
+                                                <rect key="frame" x="119" y="73" width="42" height="21"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                    </view>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                             </view>
@@ -418,6 +432,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="bannerContainerView" destination="O8Y-Ew-CmV" id="aC5-RA-DGE"/>
+                        <outlet property="noEmailView" destination="Xpo-xf-fBT" id="AT8-78-Uxn"/>
                         <outlet property="searchDisplayController" destination="MKL-2O-82K" id="751-Uu-wpL"/>
                         <outlet property="segmentedControl" destination="zia-bN-rvO" id="60e-hG-piJ"/>
                         <outlet property="tableView" destination="ejY-YF-tvu" id="ms1-vS-sg9"/>

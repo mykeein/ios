@@ -19,5 +19,6 @@
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *segmentedControl;
 - (IBAction)segmentChanged:(id)sender;
+@property (weak, nonatomic) IBOutlet UIView *noEmailView;
 
 @end

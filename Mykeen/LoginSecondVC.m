@@ -17,6 +17,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [self performSegueWithIdentifier:@"ShowMainVC" sender:self];
+
     self.navigationItem.hidesBackButton = YES;
     [self.firstTextField becomeFirstResponder];
     

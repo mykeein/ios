@@ -25,6 +25,8 @@
 }
 -(void)viewDidLoad{
     [self showBanner];
+    self.noEmailView.hidden = YES;
+    
     UIBarButtonItem * settingsButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"edit_profile22"] style:UIBarButtonItemStylePlain target:self action:@selector(settingsClicked)];
     
     UIBarButtonItem * shareButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"share2"] style:UIBarButtonItemStylePlain target:self action:nil];
@@ -32,9 +34,9 @@
     UIImageView * logoImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"logo"]];
     UIBarButtonItem * logoButton = [[UIBarButtonItem alloc] initWithCustomView:logoImageView];
     //[[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"logo"] style:UIBarButtonItemStylePlain target:self action:nil];
-
+    
     self.navigationItem.rightBarButtonItems = @[settingsButton];
-    self.navigationItem.leftBarButtonItems = @[shareButton, logoButton];
+    self.navigationItem.leftBarButtonItems = @[shareButton];
     
     self.items = [self loadItemsFromDisk];
 }
@@ -143,8 +145,11 @@
 - (IBAction)segmentChanged:(id)sender {
     if ([self.segmentedControl selectedSegmentIndex] == 1) {
         [self.tableView setTableHeaderView:nil];
+        if (![Utils getApproved])
+            self.noEmailView.hidden = NO;
     }
     else {
+        self.noEmailView.hidden = YES;
         [self.tableView setTableHeaderView:[[self searchDisplayController] searchBar]];
     }
     
