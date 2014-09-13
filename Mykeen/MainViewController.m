@@ -151,7 +151,10 @@
     path = [path stringByExpandingTildeInPath];
 
     NSMutableArray * arr = [self.items mutableCopy];
+    if (!arr)
+        arr = [[NSMutableArray alloc] initWithCapacity:10];
     [arr addObject:item];
+
     NSData * data = [NSKeyedArchiver archivedDataWithRootObject:arr];
     NSData * encryptedData =[data encryptedDataWithPass:[Utils getPass] error:nil];
     [encryptedData writeToFile:path atomically:YES];
@@ -159,9 +162,13 @@
 - (NSArray*)loadItemsFromDisk {
     NSString *path = @"~/Documents/items";
     path = [path stringByExpandingTildeInPath];
+    
+    //[[NSFileManager defaultManager] removeItemAtPath:path error:nil]; //testing
+
     NSData * data = [NSData dataWithContentsOfFile:path];
     NSData * decodedData = [data decryptedDataWithPass:[Utils getPass] error:nil];
-    NSArray * arr = [NSKeyedUnarchiver unarchiveObjectWithData:decodedData];
+    NSArray *arr = [NSKeyedUnarchiver unarchiveObjectWithData:decodedData];
+
     return arr;
 }
 -(void)loadRequestsAndReloadTheTable{
