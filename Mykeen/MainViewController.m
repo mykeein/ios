@@ -16,7 +16,7 @@
 
 @property (nonatomic, retain) GADBannerView *bannerView;
 @property NSArray *items;
-@property NSArray *requests;
+@property NSMutableArray *requests;
 
 @end
 
@@ -164,27 +164,46 @@
     NSArray * arr = [NSKeyedUnarchiver unarchiveObjectWithData:decodedData];
     return arr;
 }
+-(void)loadRequestsAndReloadTheTable{
+    if ([self.segmentedControl selectedSegmentIndex] != 1) {
+        //TODO concurrent
+        return;
+    }
+    
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    NSDictionary *parameters = @{@"email": [Utils getEmail], @"registerId":[Utils uuid]};
+    
+    NSString * reqString = [NSString stringWithFormat:@"http://localhost:3000/api/requests/load?os=ios&ln=%@",LANG];
+    [manager POST:reqString parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject)
+     {
+         self.requests = [responseObject mutableCopy];
+         [self.tableView reloadData];
+         if ([self.segmentedControl selectedSegmentIndex] == 1) {
+             [self performSelector:@selector(loadRequestsAndReloadTheTable) withObject:nil afterDelay:3];
+         }
+     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+         NSLog(@"Error: %@", error);
+         if ([self.segmentedControl selectedSegmentIndex] == 1) {
+             [self performSelector:@selector(loadRequestsAndReloadTheTable) withObject:nil afterDelay:3];
+         }
+     }];
+}
 - (IBAction)segmentChanged:(id)sender {
     if ([self.segmentedControl selectedSegmentIndex] == 1) {
         [self.tableView setTableHeaderView:nil];
-        if (![Utils getApproved])
+        [self.tableView reloadData];
+        if (![Utils getEmail]){
             self.noEmailView.hidden = NO;
+            return;
+        }
         else
             self.noEmailView.hidden = YES;
         
-        AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-        NSDictionary *parameters = @{@"email": [Utils getEmail]};
-        
-        NSString * reqString = [NSString stringWithFormat:@"http://localhost:3000/api/requests/load?os=ios&ln=%@",LANG];
-        [manager POST:reqString parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject)
-         {
-             self.requests = responseObject;
-             [self.tableView reloadData];
-         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-             NSLog(@"Error: %@", error);
-         }];
+        [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(loadRequestsAndReloadTheTable) object:nil];
+        [self loadRequestsAndReloadTheTable];
     }
     else {
+        [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(loadRequestsAndReloadTheTable) object:nil];
         self.noEmailView.hidden = YES;
         [self.tableView setTableHeaderView:[[self searchDisplayController] searchBar]];
         [self.tableView reloadData];
@@ -195,6 +214,26 @@
 }
 
 - (IBAction)ignoreRequestAction:(id)sender {
+    NSIndexPath * indexPath = [self.tableView indexPathForCell:[[[sender superview]superview]superview]]; //ios7
+    NSInteger rowOfTheCell = [indexPath row];
+    
+    NSDictionary * request = self.requests[rowOfTheCell];
+    NSString *requestId = request[@"_id"];
+    
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    NSDictionary *parameters = @{@"email": [Utils getEmail], @"registerId":[Utils uuid],@"requestId":requestId};
+    
+    NSString * reqString = [NSString stringWithFormat:@"http://localhost:3000/api/requests/warn?os=ios&ln=%@",LANG];
+    [manager POST:reqString parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject)
+     {
+         [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(loadRequestsAndReloadTheTable) object:nil];
+         [self.requests removeObjectAtIndex:rowOfTheCell];
+         [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+         [self loadRequestsAndReloadTheTable];
+     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+         NSLog(@"Error: %@", error);
+     }];
+
 }
 
 - (IBAction)sendRequestAction:(id)sender {
