@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13D65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="1yg-Eo-LA9">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="1yg-Eo-LA9">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
+        <deployment defaultVersion="1808" identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
     </dependencies>
     <scenes>
-        <!--Login FirstVC - First-->
+        <!--First-->
         <scene sceneID="XQ8-6T-sKV">
             <objects>
                 <viewController id="YZ0-S4-gFd" customClass="LoginFirstVC" sceneMemberID="viewController">
@@ -72,7 +73,7 @@
             </objects>
             <point key="canvasLocation" x="369" y="46"/>
         </scene>
-        <!--Login SecondVC - Second-->
+        <!--Second-->
         <scene sceneID="sPB-gR-O6n">
             <objects>
                 <viewController id="QVN-Nu-o2W" customClass="LoginSecondVC" sceneMemberID="viewController">
@@ -246,7 +247,7 @@
             </objects>
             <point key="canvasLocation" x="798" y="-549"/>
         </scene>
-        <!--SettingsVC - Settings-->
+        <!--Settings-->
         <scene sceneID="d6x-Co-FsX">
             <objects>
                 <viewController id="sBQ-io-5qY" customClass="SettingsVC" sceneMemberID="viewController">
@@ -278,6 +279,7 @@
                                         </state>
                                         <connections>
                                             <action selector="changeButtonClicked:" destination="sBQ-io-5qY" eventType="touchUpInside" id="A4p-gX-pd4"/>
+                                            <segue destination="IgR-kZ-gjd" kind="modal" identifier="" id="Nvm-hX-eTY"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="p4Q-sG-9pn">
@@ -304,6 +306,53 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2uL-om-485" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1282" y="-618"/>
+        </scene>
+        <!--Email-->
+        <scene sceneID="1Gt-ES-SF9">
+            <objects>
+                <viewController title="Email" id="IgR-kZ-gjd" customClass="EmailViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="7H5-Qa-VJ3">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="your email" minimumFontSize="17" id="p9o-Bt-FK6">
+                                <rect key="frame" x="40" y="115" width="253" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="b39-6y-NWD">
+                                <rect key="frame" x="57" y="164" width="76" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Cancel">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="cancelAction:" destination="IgR-kZ-gjd" eventType="touchUpInside" id="pYL-BV-uyL"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="9cv-na-jpA">
+                                <rect key="frame" x="208" y="164" width="67" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Save">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="saveAction:" destination="IgR-kZ-gjd" eventType="touchUpInside" id="rjm-ai-pNk"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="cancelButton" destination="b39-6y-NWD" id="5Ij-pF-RFe"/>
+                        <outlet property="emailTextField" destination="p9o-Bt-FK6" id="Cqp-Hj-B9Q"/>
+                        <outlet property="saveButton" destination="9cv-na-jpA" id="meF-bq-1fE"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="okv-d5-6EW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1687" y="-614"/>
         </scene>
         <!--Main View Controller-->
         <scene sceneID="zGc-6m-St4">

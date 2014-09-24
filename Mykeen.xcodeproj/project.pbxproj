@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		54049F45195E0369005DE048 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 54049F44195E0369005DE048 /* MainViewController.m */; };
 		54049F48195E0736005DE048 /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 54049F47195E0736005DE048 /* Utils.m */; };
+		540B15E519CC8873003AE564 /* EmailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 540B15E419CC8873003AE564 /* EmailViewController.m */; };
 		542816DD196A0BC900B88CF2 /* NewItemVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 542816DC196A0BC900B88CF2 /* NewItemVC.m */; };
 		5441A0C219953F700003BB39 /* action_search.png in Resources */ = {isa = PBXBuildFile; fileRef = 5441A07019953F700003BB39 /* action_search.png */; };
 		5441A0C319953F700003BB39 /* backup.png in Resources */ = {isa = PBXBuildFile; fileRef = 5441A07119953F700003BB39 /* backup.png */; };
@@ -148,6 +149,8 @@
 		54049F44195E0369005DE048 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 		54049F46195E0736005DE048 /* Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utils.h; sourceTree = "<group>"; };
 		54049F47195E0736005DE048 /* Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utils.m; sourceTree = "<group>"; };
+		540B15E319CC8873003AE564 /* EmailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EmailViewController.h; sourceTree = "<group>"; };
+		540B15E419CC8873003AE564 /* EmailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EmailViewController.m; sourceTree = "<group>"; };
 		542816DB196A0BC900B88CF2 /* NewItemVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewItemVC.h; sourceTree = "<group>"; };
 		542816DC196A0BC900B88CF2 /* NewItemVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewItemVC.m; sourceTree = "<group>"; };
 		5441A07019953F700003BB39 /* action_search.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = action_search.png; sourceTree = "<group>"; };
@@ -522,6 +525,8 @@
 				542816DC196A0BC900B88CF2 /* NewItemVC.m */,
 				544D006D1984345700B338D1 /* SettingsVC.h */,
 				544D006E1984345700B338D1 /* SettingsVC.m */,
+				540B15E319CC8873003AE564 /* EmailViewController.h */,
+				540B15E419CC8873003AE564 /* EmailViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -814,6 +819,7 @@
 				544D006F1984345700B338D1 /* SettingsVC.m in Sources */,
 				54B820DF197F18A700950904 /* NSData+Crypto.m in Sources */,
 				544DD8FC19620FD8004D0125 /* NewCell.m in Sources */,
+				540B15E519CC8873003AE564 /* EmailViewController.m in Sources */,
 				544D976619562F67006C009B /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

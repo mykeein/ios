@@ -154,7 +154,6 @@
     if (!arr)
         arr = [[NSMutableArray alloc] initWithCapacity:10];
     [arr addObject:item];
-
     NSData * data = [NSKeyedArchiver archivedDataWithRootObject:arr];
     NSData * encryptedData =[data encryptedDataWithPass:[Utils getPass] error:nil];
     [encryptedData writeToFile:path atomically:YES];

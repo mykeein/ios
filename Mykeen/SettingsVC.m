@@ -48,7 +48,8 @@
     [super viewDidLoad];
     
     self.notApprovedButton.hidden = YES;
-    [Utils setEmail:@"adsurbum@gmail.com"];
+    NSUserDefaults * userDefaults = [NSUserDefaults standardUserDefaults];
+    //[userDefaults removeObjectForKey:@"email"];
     NSString * email = [Utils getEmail];
     if (!email){
         NSString * noEmailString = NSLocalizedString(@"noEmail", nil);
