@@ -67,6 +67,8 @@
 }
 
 - (IBAction)notApprovedButtonClicked:(id)sender {
+    if (![Utils getEmail])
+        [self performSegueWithIdentifier:@"Email" sender:self];
 }
 -(void)showBanner{
     // Create a view of the standard size at the top of the screen.
