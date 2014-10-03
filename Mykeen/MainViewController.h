@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "NewItemVC.h"
 
-@interface MainViewController : UIViewController <UISearchDisplayDelegate, UITableViewDataSource, UITableViewDelegate, CreateItemDelegate>
+@interface MainViewController : UIViewController <UISearchDisplayDelegate, UITableViewDataSource, UITableViewDelegate, CreateItemDelegate,UIActionSheetDelegate>
 
 @property (weak, nonatomic) IBOutlet UIView *bannerContainerView;
 

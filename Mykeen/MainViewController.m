@@ -20,6 +20,7 @@
 
 @property BOOL toUpdate;
 @property int updateIndex;
+@property Item * selectedItem;
 
 @end
 
@@ -94,6 +95,38 @@
         return 69;
     else
         return 44;
+}
+-(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex{
+    if (actionSheet.cancelButtonIndex == buttonIndex)
+        return;
+    int index = actionSheet.firstOtherButtonIndex;
+    NSString * toastText;
+    NSString * copy;
+    if (buttonIndex == index){
+        copy = self.selectedItem.username;
+        toastText = NSLocalizedString(@"username copied", nil);
+    }else if (buttonIndex == ++index){
+        copy = self.selectedItem.password;
+        toastText = NSLocalizedString(@"password copied", nil);
+    }else if (buttonIndex == ++index){
+        copy = self.selectedItem.notes;
+        toastText = NSLocalizedString(@"notes copied", nil);
+    }
+    UIPasteboard *pasteboard = [UIPasteboard generalPasteboard];
+    pasteboard.string = copy;
+    [self.tableView makeToast:toastText];
+}
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    NSString * userName = NSLocalizedString(@"Username", nil);
+    NSString * password = NSLocalizedString(@"Password", nil);
+    NSString * notes = NSLocalizedString(@"Notes", nil);
+    NSString * cancel = NSLocalizedString(@"Cancel", nil);
+    Item * item = self.items[indexPath.row];
+    self.selectedItem = item;
+    
+    UIActionSheet * actionSheet = [[UIActionSheet alloc] initWithTitle:item.title delegate:self cancelButtonTitle:cancel destructiveButtonTitle:nil otherButtonTitles:userName,password, notes, nil];
+    [actionSheet showInView:self.view];
+    [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 #pragma mark - buttons
 -(NSIndexPath*)indexPathForSender:(id)sender{
