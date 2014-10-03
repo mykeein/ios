@@ -18,6 +18,9 @@
 @property NSArray *items;
 @property NSMutableArray *requests;
 
+@property BOOL toUpdate;
+@property int updateIndex;
+
 @end
 
 @implementation MainViewController
@@ -91,17 +94,32 @@
     else
         return 44;
 }
+#pragma mark - buttons
+-(NSIndexPath*)indexPathForSender:(id)sender{
+    NSIndexPath* indexPath;
+    UIView *view = [sender superview];
+    while (![view isKindOfClass:[UITableViewCell class]]){
+        view = [view superview];
+    }
+    indexPath = [self.tableView indexPathForCell:(UITableViewCell*)view]; //ios6
+    return indexPath;
+}
 
 - (IBAction)edit:(id)sender {
+    self.toUpdate = YES;
+    self.updateIndex = [self indexPathForSender:sender].row;
+    [self performSegueWithIdentifier:@"NewItemVC" sender:self];
 }
 
 - (IBAction)newItemAction:(id)sender {
+    self.toUpdate = NO;
     [self performSegueWithIdentifier:@"NewItemVC" sender:self];
 }
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     if ([segue.identifier isEqualToString:@"NewItemVC"]){
         NewItemVC * n = segue.destinationViewController;
         n.createItemDelegate = self;
+        
     }
 }
 
@@ -132,15 +150,15 @@
 
 
 #pragma mark - delegates
--(void)createItemWithTitle:(NSString *)title withUsername:(NSString *)username withPass:(NSString *)pass withNotes:(NSString *)notes
+-(void)createOrUpdateItemWithTitle:(NSString *)title withUsername:(NSString *)username withPass:(NSString *)pass withNotes:(NSString *)notes
 {
-    Item *newItem = [[Item alloc] init];
-    newItem.title = title;
-    newItem.username = username;
-    newItem.password = pass;
-    newItem.notes = notes;
+    Item *item = self.toUpdate ? self.items[self.updateIndex] : [[Item alloc] init];
+    item.title = title;
+    item.username = username;
+    item.password = pass;
+    item.notes = notes;
     
-    [self saveItemToDisk:newItem];
+    [self saveItemToDisk:item];
     self.items = [self loadItemsFromDisk];
     [self.tableView reloadData];
 }
@@ -153,7 +171,8 @@
     NSMutableArray * arr = [self.items mutableCopy];
     if (!arr)
         arr = [[NSMutableArray alloc] initWithCapacity:10];
-    [arr addObject:item];
+    if (!self.toUpdate)
+        [arr addObject:item];
     NSData * data = [NSKeyedArchiver archivedDataWithRootObject:arr];
     NSData * encryptedData =[data encryptedDataWithPass:[Utils getPass] error:nil];
     [encryptedData writeToFile:path atomically:YES];

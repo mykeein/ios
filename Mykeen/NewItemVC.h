@@ -10,7 +10,7 @@
 
 @protocol CreateItemDelegate <NSObject>
 @required
--(void)createItemWithTitle:(NSString *)title withUsername:(NSString *)username withPass:(NSString*)pass withNotes:(NSString*)notes;
+-(void)createOrUpdateItemWithTitle:(NSString *)title withUsername:(NSString *)username withPass:(NSString*)pass withNotes:(NSString*)notes;
 @end
 
 @interface NewItemVC : UIViewController <UITextFieldDelegate>

@@ -26,7 +26,7 @@
 
 - (IBAction)saveButtonAction:(id)sender {
     [self dismissViewControllerAnimated:YES completion:^{
-        [self.createItemDelegate createItemWithTitle:self.itemTitle.text withUsername:self.userName.text withPass:self.pass.text withNotes:self.notes.text];
+        [self.createItemDelegate createOrUpdateItemWithTitle:self.itemTitle.text withUsername:self.userName.text withPass:self.pass.text withNotes:self.notes.text];
     }];
 }
 -(BOOL)textFieldShouldReturn:(UITextField *)textField{

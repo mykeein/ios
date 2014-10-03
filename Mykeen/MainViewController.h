@@ -15,6 +15,7 @@
 
 - (IBAction)edit:(id)sender;
 - (IBAction)newItemAction:(id)sender;
+@property (weak, nonatomic) IBOutlet UIButton *editItemAction;
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *segmentedControl;
