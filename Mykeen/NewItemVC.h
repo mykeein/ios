@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Item.h"
 
 @protocol CreateItemDelegate <NSObject>
 @required
@@ -15,6 +16,7 @@
 
 @interface NewItemVC : UIViewController <UITextFieldDelegate>
 
+@property (nonatomic,retain) Item *itemToUpdate;
 
 @property (weak, nonatomic) IBOutlet UITextField *itemTitle;
 

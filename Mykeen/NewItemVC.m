@@ -29,6 +29,16 @@
         [self.createItemDelegate createOrUpdateItemWithTitle:self.itemTitle.text withUsername:self.userName.text withPass:self.pass.text withNotes:self.notes.text];
     }];
 }
+-(void)viewDidLoad{
+    [self updateFieldsWithItem:self.itemToUpdate];
+}
+
+-(void)updateFieldsWithItem:(Item*)item{
+    self.itemTitle.text = item.title;
+    self.userName.text = item.username;
+    self.pass.text = item.password;
+    self.notes.text = item.notes;
+}
 -(BOOL)textFieldShouldReturn:(UITextField *)textField{
     if (textField==self.itemTitle)
         [self.userName becomeFirstResponder];

@@ -119,7 +119,7 @@
     if ([segue.identifier isEqualToString:@"NewItemVC"]){
         NewItemVC * n = segue.destinationViewController;
         n.createItemDelegate = self;
-        
+        n.itemToUpdate = self.items[self.updateIndex];
     }
 }
 
