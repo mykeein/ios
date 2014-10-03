@@ -32,8 +32,10 @@
 @property (weak, nonatomic) IBOutlet UISwitch *azSwitch;
 @property (weak, nonatomic) IBOutlet UISwitch *AZSwitch;
 @property (weak, nonatomic) IBOutlet UISwitch *numbersSwitch;
+- (IBAction)iconButtonAction:(id)sender;
 
 
 @property id<CreateItemDelegate> createItemDelegate;
+@property (weak, nonatomic) IBOutlet UIImageView *iconImage;
 
 @end

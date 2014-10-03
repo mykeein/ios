@@ -7,8 +7,9 @@
 //
 
 #import "NewItemVC.h"
+#import "IconVC.h"
 
-@interface NewItemVC ()
+@interface NewItemVC ()<UpdateIconDelegate>
 
 @end
 
@@ -81,5 +82,18 @@
     
     return randomString;
 }
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    if ([segue.identifier isEqualToString:@"IconVC"]){
+        IconVC *vc = segue.destinationViewController;
+        vc.delegate = self;
+    }
+}
+
+-(void)setIconWithImageName:(NSString *)imageName{
+    [self.iconImage setImage:[UIImage imageNamed:imageName]];
+}
+- (IBAction)iconButtonAction:(id)sender {
     
+}
+
 @end
