@@ -84,6 +84,7 @@
         ItemCell * cell = [tableView dequeueReusableCellWithIdentifier:itemCellIdentifier];
         Item * item = self.items[indexPath.row];
         cell.nameLabel.text = item.title;
+        cell.iconImage.image = [UIImage imageNamed:item.iconImageName];
         
         return cell;
     }

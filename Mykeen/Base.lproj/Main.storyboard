@@ -469,16 +469,21 @@
                                                             </connections>
                                                         </button>
                                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="b5r-Ao-ljE">
-                                                            <rect key="frame" x="37" y="11" width="116" height="21"/>
+                                                            <rect key="frame" x="50" y="11" width="116" height="21"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_13.png" id="5yL-P6-lvN">
+                                                            <rect key="frame" x="8" y="7" width="30" height="30"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        </imageView>
                                                     </subviews>
                                                 </tableViewCellContentView>
                                                 <connections>
                                                     <outlet property="button" destination="eAR-M5-6hh" id="MHe-Ee-LLL"/>
+                                                    <outlet property="iconImage" destination="5yL-P6-lvN" id="riP-Vu-dID"/>
                                                     <outlet property="nameLabel" destination="b5r-Ao-ljE" id="OR5-ly-HY4"/>
                                                 </connections>
                                             </tableViewCell>
@@ -564,7 +569,7 @@
                                         </connections>
                                     </tableView>
                                     <view hidden="YES" contentMode="scaleToFill" id="Xpo-xf-fBT">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="450"/>
+                                        <rect key="frame" x="0.0" y="800" width="320" height="450"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <subviews>
                                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please Complete Email Settings" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="qmj-oM-eZb">
