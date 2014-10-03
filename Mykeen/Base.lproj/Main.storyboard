@@ -283,7 +283,6 @@
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <action selector="iconButtonAction:" destination="8Nu-To-LBE" eventType="touchUpInside" id="PQ7-TR-NFG"/>
                                             <segue destination="txj-8j-7fA" kind="modal" identifier="IconVC" id="L7z-AV-v8x"/>
                                         </connections>
                                     </button>

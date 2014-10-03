@@ -119,7 +119,8 @@
     if ([segue.identifier isEqualToString:@"NewItemVC"]){
         NewItemVC * n = segue.destinationViewController;
         n.createItemDelegate = self;
-        n.itemToUpdate = self.items[self.updateIndex];
+        if (self.toUpdate)
+            n.itemToUpdate = self.items[self.updateIndex];
     }
 }
 
@@ -150,13 +151,14 @@
 
 
 #pragma mark - delegates
--(void)createOrUpdateItemWithTitle:(NSString *)title withUsername:(NSString *)username withPass:(NSString *)pass withNotes:(NSString *)notes
+-(void)createOrUpdateItemWithTitle:(NSString *)title withUsername:(NSString *)username withPass:(NSString *)pass withNotes:(NSString *)notes withIconImageName:(NSString *)iconImageName
 {
     Item *item = self.toUpdate ? self.items[self.updateIndex] : [[Item alloc] init];
     item.title = title;
     item.username = username;
     item.password = pass;
     item.notes = notes;
+    item.iconImageName = iconImageName;
     
     [self saveItemToDisk:item];
     self.items = [self loadItemsFromDisk];

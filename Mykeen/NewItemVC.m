@@ -27,11 +27,15 @@
 
 - (IBAction)saveButtonAction:(id)sender {
     [self dismissViewControllerAnimated:YES completion:^{
-        [self.createItemDelegate createOrUpdateItemWithTitle:self.itemTitle.text withUsername:self.userName.text withPass:self.pass.text withNotes:self.notes.text];
+        [self.createItemDelegate createOrUpdateItemWithTitle:self.itemTitle.text withUsername:self.userName.text withPass:self.pass.text withNotes:self.notes.text withIconImageName:self.iconImageName];
     }];
 }
 -(void)viewDidLoad{
-    [self updateFieldsWithItem:self.itemToUpdate];
+    if (self.itemToUpdate)
+        [self updateFieldsWithItem:self.itemToUpdate];
+    else{
+        self.iconImageName = @"icon_13";
+    }
 }
 
 -(void)updateFieldsWithItem:(Item*)item{
@@ -39,6 +43,8 @@
     self.userName.text = item.username;
     self.pass.text = item.password;
     self.notes.text = item.notes;
+    [self.iconImage setImage:[UIImage imageNamed:item.iconImageName]];
+    self.iconImageName = item.iconImageName;
 }
 -(BOOL)textFieldShouldReturn:(UITextField *)textField{
     if (textField==self.itemTitle)
@@ -90,10 +96,8 @@
 }
 
 -(void)setIconWithImageName:(NSString *)imageName{
+    self.iconImageName = imageName;
     [self.iconImage setImage:[UIImage imageNamed:imageName]];
-}
-- (IBAction)iconButtonAction:(id)sender {
-    
 }
 
 @end

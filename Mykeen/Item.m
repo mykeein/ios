@@ -16,7 +16,7 @@
         self.username = [aDecoder decodeObjectForKey:@"username"];
         self.notes = [aDecoder decodeObjectForKey:@"notes"];
         self.password = [aDecoder decodeObjectForKey:@"password"];
-        self.imageName = [aDecoder decodeObjectForKey:@"imageName"];
+        self.iconImageName = [aDecoder decodeObjectForKey:@"iconImageName"];
     }
     return self;
 }
@@ -25,6 +25,6 @@
     [aCoder encodeObject:self.username forKey:@"username"];
     [aCoder encodeObject:self.notes forKey:@"notes"];
     [aCoder encodeObject:self.password forKey:@"password"];
-    [aCoder encodeObject:self.imageName forKey:@"imageName"];
+    [aCoder encodeObject:self.iconImageName forKey:@"iconImageName"];
 }
 @end

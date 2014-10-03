@@ -12,8 +12,8 @@
 
 @property NSString *title;
 @property NSString *username;
-@property NSString *imageName;
 @property NSString *notes;
 @property NSString *password;
+@property NSString *iconImageName;
 
 @end
