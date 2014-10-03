@@ -37,7 +37,7 @@
     
     UIBarButtonItem * settingsButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"edit_profile22"] style:UIBarButtonItemStylePlain target:self action:@selector(settingsClicked)];
     
-    UIBarButtonItem * shareButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"share2"] style:UIBarButtonItemStylePlain target:self action:nil];
+    UIBarButtonItem * shareButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"share2"] style:UIBarButtonItemStylePlain target:self action:@selector(share:)];
     
     UIImageView * logoImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"logo"]];
     UIBarButtonItem * logoButton = [[UIBarButtonItem alloc] initWithCustomView:logoImageView];
@@ -236,6 +236,35 @@
 }
 - (IBAction)settingsButtonClicked:(id)sender {
     [self performSegueWithIdentifier:@"ShowSettings" sender:self];
+}
+- (IBAction)share:(id)sender{
+    NSString * text = NSLocalizedString(@"Are you have a difficult time remembering all your usernames and passwords? Try this", nil);
+    NSString * urlString = @"https://mykee.in";
+    NSURL *url = [NSURL URLWithString:urlString];
+    
+    NSArray *activityItems = [NSArray arrayWithObjects:text, url,  nil];
+    
+    UIActivityViewController *avc = [[UIActivityViewController alloc]
+                                     initWithActivityItems:activityItems
+                                     applicationActivities:nil];
+    
+    
+    avc.excludedActivityTypes = @[UIActivityTypeAssignToContact, UIActivityTypeAddToReadingList];
+    
+    
+    //-- define the activity view completion handler
+    avc.completionHandler = ^(NSString *activityType, BOOL completed){
+        if (completed) {
+            // NSLog(@"Selected activity was performed.");
+        } else {
+            if (activityType == NULL) {
+                //   NSLog(@"User dismissed the view controller without making a selection.");
+            } else {
+                //  NSLog(@"Activity was not performed.");
+            }
+        }
+    };
+    [self presentViewController:avc animated:YES completion:nil];
 }
 
 - (IBAction)ignoreRequestAction:(id)sender {
