@@ -8,6 +8,7 @@
 
 #import "SettingsVC.h"
 #import "SettingsCell.h"
+#import "EmailViewController.h"
 
 @interface SettingsVC ()
 
@@ -48,17 +49,16 @@
     [super viewDidLoad];
     
     self.notApprovedButton.hidden = YES;
-    NSUserDefaults * userDefaults = [NSUserDefaults standardUserDefaults];
-    //[userDefaults removeObjectForKey:@"email"];
     NSString * email = [Utils getEmail];
     if (!email){
         NSString * noEmailString = NSLocalizedString(@"noEmail", nil);
-        self.notApprovedButton.titleLabel.text = noEmailString;
+        [self.notApprovedButton setTitle:noEmailString forState:UIControlStateNormal];
         self.notApprovedButton.hidden = NO;
+    }else if ([Utils getApproved]){
+        // do nothing. ok now
     }else{
         [self checkForButtonStatus];
     }
-
     
     [self showBanner];
 }
@@ -66,6 +66,12 @@
 - (IBAction)changeButtonClicked:(id)sender {
 }
 
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    if ([segue.identifier isEqualToString:@"Email"]){
+        EmailViewController * c = segue.destinationViewController;
+        NSLog(@"dsfdsf");
+    }
+}
 - (IBAction)notApprovedButtonClicked:(id)sender {
     if (![Utils getEmail])
         [self performSegueWithIdentifier:@"Email" sender:self];

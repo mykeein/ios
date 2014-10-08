@@ -50,6 +50,8 @@
     NSString * reqString = [NSString stringWithFormat:@"http://localhost:3000/api/user/updateemail?os=ios&ln=%@",LANG];
     [manager POST:reqString parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject)
      {
+         [Utils setApproved:NO];
+
          NSDictionary *dic = responseObject;
          if (dic && [dic[@"status"] isEqualToString:@"send_approve_email_failed"])
          {

@@ -253,11 +253,10 @@
     if ([self.segmentedControl selectedSegmentIndex] == 1) {
         [self.tableView setTableHeaderView:nil];
         [self.tableView reloadData];
-        if (![Utils getEmail]){
+        if (![Utils getApproved]){
             self.noEmailView.hidden = NO;
             return;
-        }
-        else
+        }else
             self.noEmailView.hidden = YES;
         
         [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(loadRequestsAndReloadTheTable) object:nil];
