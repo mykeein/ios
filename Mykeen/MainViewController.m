@@ -185,6 +185,11 @@
 
 
 #pragma mark - delegates
+-(void)dropItem{
+    [self removeItemFromDisk:self.items[self.updateIndex]];
+    self.items = [self loadItemsFromDisk];
+    [self.tableView reloadData];
+}
 -(void)createOrUpdateItemWithTitle:(NSString *)title withUsername:(NSString *)username withPass:(NSString *)pass withNotes:(NSString *)notes withIconImageName:(NSString *)iconImageName
 {
     Item *item = self.toUpdate ? self.items[self.updateIndex] : [[Item alloc] init];
@@ -200,6 +205,16 @@
 }
 
 #pragma mark - disk
+- (void)removeItemFromDisk:(Item*)item{
+    NSString *path = @"~/Documents/items";
+    path = [path stringByExpandingTildeInPath];
+    
+    NSMutableArray * arr = [self.items mutableCopy];
+    [arr removeObject:item];
+    NSData * data = [NSKeyedArchiver archivedDataWithRootObject:arr];
+    NSData * encryptedData =[data encryptedDataWithPass:[Utils getPass] error:nil];
+    [encryptedData writeToFile:path atomically:YES];
+}
 - (void)saveItemToDisk:(Item*)item {
     NSString *path = @"~/Documents/items";
     path = [path stringByExpandingTildeInPath];

@@ -12,9 +12,10 @@
 @protocol CreateItemDelegate <NSObject>
 @required
 -(void)createOrUpdateItemWithTitle:(NSString *)title withUsername:(NSString *)username withPass:(NSString*)pass withNotes:(NSString*)notes withIconImageName:(NSString*)iconImageName;
+-(void)dropItem;
 @end
 
-@interface NewItemVC : UIViewController <UITextFieldDelegate>
+@interface NewItemVC : UIViewController <UITextFieldDelegate, UIActionSheetDelegate>
 
 @property (nonatomic,retain) Item *itemToUpdate;
 
@@ -36,7 +37,9 @@
 
 @property id<CreateItemDelegate> createItemDelegate;
 @property (weak, nonatomic) IBOutlet UIImageView *iconImage;
+@property (weak, nonatomic) IBOutlet UIButton *deleteButton;
 
 @property (retain, nonatomic) NSString *iconImageName;
+- (IBAction)deleteButtonAction:(id)sender;
 
 @end

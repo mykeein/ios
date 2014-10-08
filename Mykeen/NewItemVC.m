@@ -34,6 +34,7 @@
     if (self.itemToUpdate)
         [self updateFieldsWithItem:self.itemToUpdate];
     else{
+        self.deleteButton.hidden = YES;
         self.iconImageName = @"icon_13";
     }
 }
@@ -100,4 +101,16 @@
     [self.iconImage setImage:[UIImage imageNamed:imageName]];
 }
 
+- (IBAction)deleteButtonAction:(id)sender {
+    NSString * title = NSLocalizedString(@"Are you sure that you want to delete this key ?", nil);
+    UIActionSheet * actionSheet = [[UIActionSheet alloc]initWithTitle:title delegate:self cancelButtonTitle:NSLocalizedString(@"NO", nil) destructiveButtonTitle:NSLocalizedString(@"YES",nil) otherButtonTitles:nil, nil];
+    [actionSheet showInView:self.view];
+}
+-(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex{
+    if (buttonIndex==actionSheet.destructiveButtonIndex){
+        [self dismissViewControllerAnimated:YES completion:^{
+            [self.createItemDelegate dropItem];
+        }];
+    }
+}
 @end
