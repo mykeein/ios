@@ -25,5 +25,6 @@
 
 - (IBAction)ignoreRequestAction:(id)sender;
 - (IBAction)sendRequestAction:(id)sender;
+@property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 
 @end

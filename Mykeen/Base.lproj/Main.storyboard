@@ -636,6 +636,7 @@
                     <connections>
                         <outlet property="bannerContainerView" destination="O8Y-Ew-CmV" id="aC5-RA-DGE"/>
                         <outlet property="noEmailView" destination="Xpo-xf-fBT" id="AT8-78-Uxn"/>
+                        <outlet property="searchBar" destination="SNt-Mg-BjV" id="w55-mv-AmM"/>
                         <outlet property="searchDisplayController" destination="MKL-2O-82K" id="751-Uu-wpL"/>
                         <outlet property="segmentedControl" destination="zia-bN-rvO" id="60e-hG-piJ"/>
                         <outlet property="tableView" destination="ejY-YF-tvu" id="ms1-vS-sg9"/>

@@ -57,9 +57,19 @@
 {
     NSLog(@"now");
 }
+-(NSArray*)filterItemsBySearch{
+    NSString * filterString = [NSString stringWithFormat:@"title like '%@*'",self.searchBar.text];
+    NSPredicate * predicate = [NSPredicate predicateWithFormat:filterString];
+    NSArray * result = [self.items filteredArrayUsingPredicate:predicate];
+    return result;
+}
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    if (tableView!=self.tableView)
-        return 0;
+    if (tableView!=self.tableView){
+        if (![self.searchBar.text isEqualToString:@""])
+            return [[self filterItemsBySearch]count];
+        else
+            return 0;
+    }
     
     if (self.segmentedControl.selectedSegmentIndex == 1)
         return [self.requests count];
@@ -77,12 +87,12 @@
         return cell;
 
     }
-    if (indexPath.row == [self.items count]){
+    if (self.tableView == tableView && indexPath.row == [self.items count]){
         static NSString* newCellIdentifier = @"NewCell";
-        return [tableView dequeueReusableCellWithIdentifier:newCellIdentifier];
+        return [self.tableView dequeueReusableCellWithIdentifier:newCellIdentifier];
     }else{
         static NSString* itemCellIdentifier = @"ItemCell";
-        ItemCell * cell = [tableView dequeueReusableCellWithIdentifier:itemCellIdentifier];
+        ItemCell * cell = [self.tableView dequeueReusableCellWithIdentifier:itemCellIdentifier];
         Item * item = self.items[indexPath.row];
         cell.nameLabel.text = item.title;
         cell.iconImage.image = [UIImage imageNamed:item.iconImageName];
