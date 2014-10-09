@@ -58,7 +58,7 @@
     NSLog(@"now");
 }
 -(NSArray*)filterItemsBySearch{
-    NSString * filterString = [NSString stringWithFormat:@"title like '%@*'",self.searchBar.text];
+    NSString * filterString = [NSString stringWithFormat:@"title like '%@*'",self.searchBar.text]; //another option @"title beginswith[c] James" or contains[cd]
     NSPredicate * predicate = [NSPredicate predicateWithFormat:filterString];
     NSArray * result = [self.items filteredArrayUsingPredicate:predicate];
     return result;
