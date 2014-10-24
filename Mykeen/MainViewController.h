@@ -12,6 +12,8 @@
 @interface MainViewController : UIViewController <UISearchDisplayDelegate, UITableViewDataSource, UITableViewDelegate, CreateItemDelegate,UIActionSheetDelegate>
 
 @property (weak, nonatomic) IBOutlet UIView *bannerContainerView;
+- (IBAction)swipeLeft:(id)sender;
+- (IBAction)swipeRight:(id)sender;
 
 - (IBAction)edit:(id)sender;
 - (IBAction)newItemAction:(id)sender;

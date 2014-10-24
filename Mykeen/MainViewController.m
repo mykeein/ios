@@ -149,6 +149,16 @@
     return indexPath;
 }
 
+- (IBAction)swipeLeft:(id)sender {
+    self.segmentedControl.selectedSegmentIndex = 0;
+    [self segmentChanged:self];
+}
+
+- (IBAction)swipeRight:(id)sender {
+    self.segmentedControl.selectedSegmentIndex = 1;
+    [self segmentChanged:self];
+}
+
 - (IBAction)edit:(id)sender {
     self.toUpdate = YES;
     self.updateIndex = [self indexPathForSender:sender].row;
@@ -192,7 +202,58 @@
     request.testDevices = @[ @"GAD_SIMULATOR_ID" ];
     [self.bannerView loadRequest:request];
 }
-
+- (IBAction)segmentChanged:(id)sender {
+    if ([self.segmentedControl selectedSegmentIndex] == 1) {
+        [self.tableView setTableHeaderView:nil];
+        [self.tableView reloadData];
+        if (![Utils getApproved]){
+            self.noEmailView.hidden = NO;
+            return;
+        }else
+            self.noEmailView.hidden = YES;
+        
+        [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(loadRequestsAndReloadTheTable) object:nil];
+        [self loadRequestsAndReloadTheTable];
+    }
+    else {
+        [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(loadRequestsAndReloadTheTable) object:nil];
+        self.noEmailView.hidden = YES;
+        [self.tableView setTableHeaderView:[[self searchDisplayController] searchBar]];
+        [self.tableView reloadData];
+    }
+}
+- (IBAction)settingsButtonClicked:(id)sender {
+    [self performSegueWithIdentifier:@"ShowSettings" sender:self];
+}
+- (IBAction)share:(id)sender{
+    NSString * text = NSLocalizedString(@"Are you have a difficult time remembering all your usernames and passwords? Try this", nil);
+    NSString * urlString = @"https://mykee.in";
+    NSURL *url = [NSURL URLWithString:urlString];
+    
+    NSArray *activityItems = [NSArray arrayWithObjects:text, url,  nil];
+    
+    UIActivityViewController *avc = [[UIActivityViewController alloc]
+                                     initWithActivityItems:activityItems
+                                     applicationActivities:nil];
+    
+    
+    avc.excludedActivityTypes = @[UIActivityTypeAssignToContact, UIActivityTypeAddToReadingList];
+    
+    
+    //-- define the activity view completion handler
+    avc.completionHandler = ^(NSString *activityType, BOOL completed){
+        if (completed) {
+            // NSLog(@"Selected activity was performed.");
+        } else {
+            if (activityType == NULL) {
+                //   NSLog(@"User dismissed the view controller without making a selection.");
+            } else {
+                //  NSLog(@"Activity was not performed.");
+            }
+        }
+    };
+    [self presentViewController:avc animated:YES completion:nil];
+}
 
 #pragma mark - delegates
 -(void)dropItem{
@@ -259,7 +320,7 @@
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     NSDictionary *parameters = @{@"email": [Utils getEmail], @"registerId":[Utils uuid]};
     
-    NSString * reqString = [NSString stringWithFormat:@"http://localhost:3000/api/requests/load?os=ios&ln=%@",LANG];
+    NSString * reqString = [NSString stringWithFormat:@"%@/api/requests/load?os=ios&ln=%@",MYKEE_URL,LANG];
     [manager POST:reqString parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject)
      {
          self.requests = [responseObject mutableCopy];
@@ -274,58 +335,6 @@
          }
      }];
 }
-- (IBAction)segmentChanged:(id)sender {
-    if ([self.segmentedControl selectedSegmentIndex] == 1) {
-        [self.tableView setTableHeaderView:nil];
-        [self.tableView reloadData];
-        if (![Utils getApproved]){
-            self.noEmailView.hidden = NO;
-            return;
-        }else
-            self.noEmailView.hidden = YES;
-        
-        [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(loadRequestsAndReloadTheTable) object:nil];
-        [self loadRequestsAndReloadTheTable];
-    }
-    else {
-        [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(loadRequestsAndReloadTheTable) object:nil];
-        self.noEmailView.hidden = YES;
-        [self.tableView setTableHeaderView:[[self searchDisplayController] searchBar]];
-        [self.tableView reloadData];
-    }
-}
-- (IBAction)settingsButtonClicked:(id)sender {
-    [self performSegueWithIdentifier:@"ShowSettings" sender:self];
-}
-- (IBAction)share:(id)sender{
-    NSString * text = NSLocalizedString(@"Are you have a difficult time remembering all your usernames and passwords? Try this", nil);
-    NSString * urlString = @"https://mykee.in";
-    NSURL *url = [NSURL URLWithString:urlString];
-    
-    NSArray *activityItems = [NSArray arrayWithObjects:text, url,  nil];
-    
-    UIActivityViewController *avc = [[UIActivityViewController alloc]
-                                     initWithActivityItems:activityItems
-                                     applicationActivities:nil];
-    
-    
-    avc.excludedActivityTypes = @[UIActivityTypeAssignToContact, UIActivityTypeAddToReadingList];
-    
-    
-    //-- define the activity view completion handler
-    avc.completionHandler = ^(NSString *activityType, BOOL completed){
-        if (completed) {
-            // NSLog(@"Selected activity was performed.");
-        } else {
-            if (activityType == NULL) {
-                //   NSLog(@"User dismissed the view controller without making a selection.");
-            } else {
-                //  NSLog(@"Activity was not performed.");
-            }
-        }
-    };
-    [self presentViewController:avc animated:YES completion:nil];
-}
 
 - (IBAction)ignoreRequestAction:(id)sender {
     NSIndexPath * indexPath = [self.tableView indexPathForCell:[[[sender superview]superview]superview]]; //ios7
@@ -337,7 +346,7 @@
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     NSDictionary *parameters = @{@"email": [Utils getEmail], @"registerId":[Utils uuid],@"requestId":requestId};
     
-    NSString * reqString = [NSString stringWithFormat:@"http://localhost:3000/api/requests/warn?os=ios&ln=%@",LANG];
+    NSString * reqString = [NSString stringWithFormat:@"%@/api/requests/warn?os=ios&ln=%@",MYKEE_URL,LANG];
     [manager POST:reqString parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject)
      {
          [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(loadRequestsAndReloadTheTable) object:nil];

@@ -22,7 +22,7 @@
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     NSDictionary *parameters = @{@"email": [Utils getEmail],@"registerId":[Utils uuid]};
     
-    NSString * reqString = [NSString stringWithFormat:@"http://localhost:3000/api/user/check?os=ios&ln=%@",LANG];
+    NSString * reqString = [NSString stringWithFormat:@"%@/api/user/check?os=ios&ln=%@",MYKEE_URL,LANG];
     [manager POST:reqString parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject)
      {
          if ([responseObject[@"status"] isEqualToString:@"send_approve_email_failed"]){

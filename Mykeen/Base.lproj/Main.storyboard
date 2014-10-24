@@ -435,7 +435,7 @@
         <scene sceneID="zGc-6m-St4">
             <objects>
                 <viewController extendedLayoutIncludesOpaqueBars="YES" id="6fw-m4-zUU" customClass="MainViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="2lI-Qw-SBn">
+                    <view key="view" multipleTouchEnabled="YES" contentMode="scaleToFill" id="2lI-Qw-SBn">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
@@ -618,6 +618,11 @@
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="GqR-dt-MH0" appends="YES" id="W4r-xv-jge"/>
+                            <outletCollection property="gestureRecognizers" destination="kbA-ah-Cvh" appends="YES" id="cjt-Dr-xHA"/>
+                        </connections>
                     </view>
                     <navigationItem key="navigationItem" id="GRV-Hi-yZh">
                         <nil key="title"/>
@@ -654,6 +659,17 @@
                         <outlet property="searchResultsDelegate" destination="6fw-m4-zUU" id="tG1-cR-wia"/>
                     </connections>
                 </searchDisplayController>
+                <swipeGestureRecognizer direction="left" id="kbA-ah-Cvh">
+                    <connections>
+                        <action selector="swipeLeft:" destination="6fw-m4-zUU" id="piC-Ng-RQe"/>
+                        <outlet property="delegate" destination="6fw-m4-zUU" id="2tu-f8-MA2"/>
+                    </connections>
+                </swipeGestureRecognizer>
+                <swipeGestureRecognizer direction="right" id="GqR-dt-MH0">
+                    <connections>
+                        <action selector="swipeRight:" destination="6fw-m4-zUU" id="DEu-en-rCz"/>
+                    </connections>
+                </swipeGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1169" y="59"/>
         </scene>

@@ -23,7 +23,9 @@
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     NSDictionary *parameters = @{@"email": self.emailTextField.text, @"registerId":[Utils uuid]};
     
-    NSString * reqString = [NSString stringWithFormat:@"http://localhost:3000/api/user/new?os=ios&ln=%@",LANG];
+    NSString * reqString = [NSString stringWithFormat:@"%@/api/user/new?os=ios&ln=%@",MYKEE_URL,LANG];
+    NSLog(@"%@",parameters);
+    //manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
     [manager POST:reqString parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject)
      {
          [Utils setEmail:self.emailTextField.text];
@@ -47,7 +49,7 @@
                                  @"registerId":[Utils uuid],
                                  @"oldEmail":[Utils getEmail]};
     
-    NSString * reqString = [NSString stringWithFormat:@"http://localhost:3000/api/user/updateemail?os=ios&ln=%@",LANG];
+    NSString * reqString = [NSString stringWithFormat:@"%@/api/user/updateemail?os=ios&ln=%@",MYKEE_URL,LANG];
     [manager POST:reqString parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject)
      {
          [Utils setApproved:NO];
