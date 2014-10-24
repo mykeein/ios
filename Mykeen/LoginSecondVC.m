@@ -9,6 +9,8 @@
 #import "LoginSecondVC.h"
 
 @interface LoginSecondVC ()
+@property (weak, nonatomic) IBOutlet UILabel *label;
+@property (weak, nonatomic) IBOutlet UIButton *loginButton;
 
 @end
 
@@ -17,7 +19,19 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    //[self performSegueWithIdentifier:@"ShowMainVC" sender:self];
+    
+    CGPoint center = self.label.center;
+    [self.label sizeToFit];
+    self.label.center = CGPointMake(center.x, self.label.center.y);
+
+    [self.label sizeToFit];
+    self.label.textAlignment = NSTextAlignmentCenter;
+    
+    self.label.text = NSLocalizedString(@"master key text second screen", nil);
+    [self.loginButton setTitle:NSLocalizedString(@"second screen login button text", nil) forState:UIControlStateNormal];
+    
+    
+    
 
     self.navigationItem.hidesBackButton = YES;
     [self.firstTextField becomeFirstResponder];

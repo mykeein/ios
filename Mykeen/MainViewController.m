@@ -27,6 +27,7 @@
 @implementation MainViewController
 
 -(void)viewWillAppear:(BOOL)animated{
+    [self.navigationController setNavigationBarHidden:NO animated:animated];
     self.navigationItem.hidesBackButton = YES;
     if ([self.segmentedControl selectedSegmentIndex] == 1) {
         [self segmentChanged:self]; //reload no email status

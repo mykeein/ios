@@ -15,6 +15,9 @@
 
 @implementation LoginFirstVC
 
+-(void)viewWillAppear:(BOOL)animated{
+    [self.navigationController setNavigationBarHidden:YES animated:animated];
+}
 - (void)viewDidLoad
 {
     [super viewDidLoad];
