@@ -16,9 +16,30 @@
 
 @implementation LoginSecondVC
 
+- (void)keyboardWasShown:(NSNotification*)aNotification
+{
+    NSLog(@"shown");
+    NSDictionary* info = [aNotification userInfo];
+    CGSize kbSize = [[info objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue].size;
+    
+    NSLog(@"%f %f",kbSize.height, self.view.frame.size.height);
+    float h = self.view.frame.size.height - kbSize.height;
+    self.containerView.center = CGPointMake(self.view.frame.size.width/2, h/2);
+    
+    //self.containerView.hidden = NO;
+}
+-(void)viewWillAppear:(BOOL)animated{
+    [self.navigationController setNavigationBarHidden:YES animated:animated];
+}
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.containerView.center = self.view.center;
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardWasShown:)
+                                                 name:UIKeyboardWillShowNotification object:nil];
+    //TODO in ios8 get keyboard height from the first view controller
     
     CGPoint center = self.label.center;
     [self.label sizeToFit];

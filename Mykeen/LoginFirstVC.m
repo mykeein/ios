@@ -8,6 +8,7 @@
 
 #import "LoginFirstVC.h"
 #import "Constants.h"
+#import "LoginSecondVC.h"
 
 @interface LoginFirstVC ()
 
@@ -23,10 +24,11 @@
     [super viewDidLoad];
     [self updateButtonState];
     
-    //[SSKeychain deletePasswordForService:@"Mykeen" account:@"me"]; // for tests
+    [SSKeychain deletePasswordForService:@"Mykeen" account:@"me"]; // for tests
     NSString *pass = [Utils getPass];
     if (pass){
-        [self performSegueWithIdentifier:@"ShowSecondLogin" sender:self];
+        UIViewController * viewController = [self.navigationController.storyboard instantiateViewControllerWithIdentifier:@"LoginSecondVC"];
+        [self.navigationController pushViewController:viewController animated:NO];
         return;
     }
     self.firstTextField.delegate = self;
