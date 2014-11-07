@@ -9,11 +9,12 @@
 @interface LoginFirstVC : UIViewController <UITextFieldDelegate>
 
 
-@property (weak, nonatomic) IBOutlet UITextField *secondTextField;
-@property (weak, nonatomic) IBOutlet UITextField *firstTextField;
-- (IBAction)firstTextChanged:(id)sender;
-- (IBAction)secondTextChanged:(id)sender;
+@property (weak, nonatomic) IBOutlet UIView *containerView;
 - (IBAction)buttonClicked:(id)sender;
-@property (weak, nonatomic) IBOutlet UIButton *button;
+@property (weak, nonatomic) IBOutlet UITextField *firstTextField;
+
+
+@property (weak, nonatomic) IBOutlet UILabel *label;
+@property (weak, nonatomic) IBOutlet UIButton *loginButton;
 
 @end

@@ -248,11 +248,11 @@
 		544D006E1984345700B338D1 /* SettingsVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsVC.m; sourceTree = "<group>"; };
 		544D00711984382200B338D1 /* testimage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = testimage.png; sourceTree = "<group>"; };
 		544D00721984382200B338D1 /* testimage@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "testimage@2x.png"; sourceTree = "<group>"; };
-		544D975219562F67006C009B /* Mykeen.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mykeen.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		544D975219562F67006C009B /* free.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = free.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		544D975519562F67006C009B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		544D975719562F67006C009B /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		544D975919562F67006C009B /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
-		544D975D19562F67006C009B /* Mykeen-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Mykeen-Info.plist"; sourceTree = "<group>"; };
+		544D975D19562F67006C009B /* free-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "free-Info.plist"; sourceTree = "<group>"; };
 		544D975F19562F67006C009B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		544D976119562F67006C009B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		544D976319562F67006C009B /* Mykeen-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Mykeen-Prefix.pch"; sourceTree = "<group>"; };
@@ -260,7 +260,7 @@
 		544D976519562F67006C009B /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		544D976819562F67006C009B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		544D976D19562F67006C009B /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		544D977319562F67006C009B /* MykeenTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MykeenTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		544D977319562F67006C009B /* freeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = freeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		544D977419562F67006C009B /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		544D977C19562F67006C009B /* MykeenTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MykeenTests-Info.plist"; sourceTree = "<group>"; };
 		544D977E19562F67006C009B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -445,8 +445,8 @@
 		544D975319562F67006C009B /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				544D975219562F67006C009B /* Mykeen.app */,
-				544D977319562F67006C009B /* MykeenTests.xctest */,
+				544D975219562F67006C009B /* free.app */,
+				544D977319562F67006C009B /* freeTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -492,7 +492,7 @@
 			isa = PBXGroup;
 			children = (
 				544D975419562F67006C009B /* Frameworks */,
-				544D975D19562F67006C009B /* Mykeen-Info.plist */,
+				544D975D19562F67006C009B /* free-Info.plist */,
 				544D975E19562F67006C009B /* InfoPlist.strings */,
 				544D976119562F67006C009B /* main.m */,
 				544D976319562F67006C009B /* Mykeen-Prefix.pch */,
@@ -598,9 +598,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		544D975119562F67006C009B /* Mykeen */ = {
+		544D975119562F67006C009B /* free */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 544D978419562F67006C009B /* Build configuration list for PBXNativeTarget "Mykeen" */;
+			buildConfigurationList = 544D978419562F67006C009B /* Build configuration list for PBXNativeTarget "free" */;
 			buildPhases = (
 				22ED28A0281E4FA68CC906D0 /* Check Pods Manifest.lock */,
 				544D974E19562F67006C009B /* Sources */,
@@ -612,14 +612,14 @@
 			);
 			dependencies = (
 			);
-			name = Mykeen;
+			name = free;
 			productName = Mykeen;
-			productReference = 544D975219562F67006C009B /* Mykeen.app */;
+			productReference = 544D975219562F67006C009B /* free.app */;
 			productType = "com.apple.product-type.application";
 		};
-		544D977219562F67006C009B /* MykeenTests */ = {
+		544D977219562F67006C009B /* freeTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 544D978719562F67006C009B /* Build configuration list for PBXNativeTarget "MykeenTests" */;
+			buildConfigurationList = 544D978719562F67006C009B /* Build configuration list for PBXNativeTarget "freeTests" */;
 			buildPhases = (
 				544D976F19562F67006C009B /* Sources */,
 				544D977019562F67006C009B /* Frameworks */,
@@ -630,9 +630,9 @@
 			dependencies = (
 				544D977919562F67006C009B /* PBXTargetDependency */,
 			);
-			name = MykeenTests;
+			name = freeTests;
 			productName = MykeenTests;
-			productReference = 544D977319562F67006C009B /* MykeenTests.xctest */;
+			productReference = 544D977319562F67006C009B /* freeTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -645,12 +645,15 @@
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = Mykeen;
 				TargetAttributes = {
+					544D975119562F67006C009B = {
+						DevelopmentTeam = 654Y4Q74R4;
+					};
 					544D977219562F67006C009B = {
 						TestTargetID = 544D975119562F67006C009B;
 					};
 				};
 			};
-			buildConfigurationList = 544D974D19562F67006C009B /* Build configuration list for PBXProject "Mykeen" */;
+			buildConfigurationList = 544D974D19562F67006C009B /* Build configuration list for PBXProject "free" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -663,8 +666,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				544D975119562F67006C009B /* Mykeen */,
-				544D977219562F67006C009B /* MykeenTests */,
+				544D975119562F67006C009B /* free */,
+				544D977219562F67006C009B /* freeTests */,
 			);
 		};
 /* End PBXProject section */
@@ -849,7 +852,7 @@
 /* Begin PBXTargetDependency section */
 		544D977919562F67006C009B /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 544D975119562F67006C009B /* Mykeen */;
+			target = 544D975119562F67006C009B /* free */;
 			targetProxy = 544D977819562F67006C009B /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -958,14 +961,16 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Mykeen/Mykeen-Prefix.pch";
-				INFOPLIST_FILE = "Mykeen/Mykeen-Info.plist";
+				GCC_PREFIX_HEADER = "Mykeen/free-Prefix.pch";
+				INFOPLIST_FILE = "Mykeen/free-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = free;
+				PROVISIONING_PROFILE = "52e6036a-8836-49a1-91db-94d5998b9707";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -976,14 +981,16 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Mykeen/Mykeen-Prefix.pch";
-				INFOPLIST_FILE = "Mykeen/Mykeen-Info.plist";
+				GCC_PREFIX_HEADER = "Mykeen/free-Prefix.pch";
+				INFOPLIST_FILE = "Mykeen/free-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = free;
+				PROVISIONING_PROFILE = "52e6036a-8836-49a1-91db-94d5998b9707";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -1004,7 +1011,7 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = "MykeenTests/MykeenTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = freeTests;
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
 			};
@@ -1022,7 +1029,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Mykeen/Mykeen-Prefix.pch";
 				INFOPLIST_FILE = "MykeenTests/MykeenTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = freeTests;
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
 			};
@@ -1031,7 +1038,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		544D974D19562F67006C009B /* Build configuration list for PBXProject "Mykeen" */ = {
+		544D974D19562F67006C009B /* Build configuration list for PBXProject "free" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				544D978219562F67006C009B /* Debug */,
@@ -1040,7 +1047,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		544D978419562F67006C009B /* Build configuration list for PBXNativeTarget "Mykeen" */ = {
+		544D978419562F67006C009B /* Build configuration list for PBXNativeTarget "free" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				544D978519562F67006C009B /* Debug */,
@@ -1049,7 +1056,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		544D978719562F67006C009B /* Build configuration list for PBXNativeTarget "MykeenTests" */ = {
+		544D978719562F67006C009B /* Build configuration list for PBXNativeTarget "freeTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				544D978819562F67006C009B /* Debug */,

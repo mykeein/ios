@@ -13,4 +13,8 @@
 @property (weak, nonatomic) IBOutlet UIView *containerView;
 - (IBAction)buttonClicked:(id)sender;
 @property (weak, nonatomic) IBOutlet UITextField *firstTextField;
+
+@property (weak, nonatomic) IBOutlet UILabel *label;
+@property (weak, nonatomic) IBOutlet UIButton *loginButton;
+
 @end

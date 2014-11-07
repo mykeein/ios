@@ -9,8 +9,7 @@
 #import "LoginSecondVC.h"
 
 @interface LoginSecondVC ()
-@property (weak, nonatomic) IBOutlet UILabel *label;
-@property (weak, nonatomic) IBOutlet UIButton *loginButton;
+
 
 @end
 
@@ -50,9 +49,6 @@
     
     self.label.text = NSLocalizedString(@"master key text second screen", nil);
     [self.loginButton setTitle:NSLocalizedString(@"second screen login button text", nil) forState:UIControlStateNormal];
-    
-    
-    
 
     self.navigationItem.hidesBackButton = YES;
     [self.firstTextField becomeFirstResponder];
@@ -77,6 +73,5 @@
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Wrong Pass", nil) message:nil delegate:nil cancelButtonTitle:NSLocalizedString(@"Ok for wrong pass", nil) otherButtonTitles:nil, nil];
         [alert show];
     }
-    
 }
 @end

@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "544D975119562F67006C009B"
-               BuildableName = "Mykeen.app"
-               BlueprintName = "Mykeen"
-               ReferencedContainer = "container:Mykeen.xcodeproj">
+               BuildableName = "free.app"
+               BlueprintName = "free"
+               ReferencedContainer = "container:free.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "544D977219562F67006C009B"
-               BuildableName = "MykeenTests.xctest"
-               BlueprintName = "MykeenTests"
-               ReferencedContainer = "container:Mykeen.xcodeproj">
+               BuildableName = "freeTests.xctest"
+               BlueprintName = "freeTests"
+               ReferencedContainer = "container:free.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -43,9 +43,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "544D975119562F67006C009B"
-            BuildableName = "Mykeen.app"
-            BlueprintName = "Mykeen"
-            ReferencedContainer = "container:Mykeen.xcodeproj">
+            BuildableName = "free.app"
+            BlueprintName = "free"
+            ReferencedContainer = "container:free.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -62,9 +62,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "544D975119562F67006C009B"
-            BuildableName = "Mykeen.app"
-            BlueprintName = "Mykeen"
-            ReferencedContainer = "container:Mykeen.xcodeproj">
+            BuildableName = "free.app"
+            BlueprintName = "free"
+            ReferencedContainer = "container:free.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -80,9 +80,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "544D975119562F67006C009B"
-            BuildableName = "Mykeen.app"
-            BlueprintName = "Mykeen"
-            ReferencedContainer = "container:Mykeen.xcodeproj">
+            BuildableName = "free.app"
+            BlueprintName = "free"
+            ReferencedContainer = "container:free.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
