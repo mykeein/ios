@@ -442,12 +442,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Mykeen/LoginSecondVC.m"
-            timestampString = "437073693.898067"
+            timestampString = "437075206.468218"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "59"
-            endingLineNumber = "59"
-            landmarkName = "-viewDidLoad"
+            startingLineNumber = "61"
+            endingLineNumber = "61"
+            landmarkName = "-firstTextFieldChanged:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -480,22 +480,6 @@
             startingLineNumber = "274"
             endingLineNumber = "274"
             landmarkName = "-createOrUpdateItemWithTitle:withUsername:withPass:withNotes:withIconImageName:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Mykeen/LoginSecondVC.m"
-            timestampString = "437073693.898067"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "72"
-            endingLineNumber = "72"
-            landmarkName = "-buttonClicked:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

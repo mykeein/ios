@@ -33,7 +33,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.containerView.center = self.view.center;
+    self.containerView.center = !CGPointEqualToPoint(self.containerCenter, CGPointZero) ? self.containerCenter : self.view.center;
     
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(keyboardWasShown:)
@@ -52,10 +52,15 @@
 
     self.navigationItem.hidesBackButton = YES;
     [self.firstTextField becomeFirstResponder];
+    self.loginButton.enabled = NO;
     
     AppDelegate * appDelegate = [[UIApplication sharedApplication] delegate];
     appDelegate.loginViewController = self;
     appDelegate.loginNavigationController = self.navigationController;
+}
+
+-(IBAction)firstTextFieldChanged:(id)sender{
+    self.loginButton.enabled = self.firstTextField.text && ![self.firstTextField.text isEqualToString:@""];
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
@@ -69,9 +74,9 @@
     if ([reallPass isEqualToString:enteredPass])
         [self performSegueWithIdentifier:@"ShowMainVC" sender:self];
     else{
-        NSLocalizedString(@"Wrong Pass", nil);
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Wrong Pass", nil) message:nil delegate:nil cancelButtonTitle:NSLocalizedString(@"Ok for wrong pass", nil) otherButtonTitles:nil, nil];
         [alert show];
     }
 }
+
 @end

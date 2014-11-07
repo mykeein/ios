@@ -12,9 +12,11 @@
 @property (weak, nonatomic) IBOutlet UIView *containerView;
 - (IBAction)buttonClicked:(id)sender;
 @property (weak, nonatomic) IBOutlet UITextField *firstTextField;
+- (IBAction)firstTextFieldChanged:(id)sender;
 
 
 @property (weak, nonatomic) IBOutlet UILabel *label;
 @property (weak, nonatomic) IBOutlet UIButton *loginButton;
 
+@property CGPoint containerCenter;
 @end

@@ -26,6 +26,7 @@
     float h = self.view.frame.size.height - kbSize.height;
     self.containerView.center = CGPointMake(self.view.frame.size.width/2, h/2);
     
+    self.containerCenter = self.containerView.center;
     //self.containerView.hidden = NO;
 }
 -(void)viewWillAppear:(BOOL)animated{
@@ -43,6 +44,7 @@
     }
     
     self.containerView.center = self.view.center;
+    self.containerCenter = self.containerView.center;
     
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(keyboardWasShown:)
@@ -60,29 +62,22 @@
     [self.loginButton setTitle:NSLocalizedString(@"first screen login button text", nil) forState:UIControlStateNormal];
     
     self.navigationItem.hidesBackButton = YES;
-    self.firstTextField.delegate = self;
     [self.firstTextField becomeFirstResponder];
     
     self.loginButton.enabled = NO;
 }
 
-//-(void)textFieldDidEndEditing:(UITextField *)textField{
-//    NSLog(@"here");
-//    self.loginButton.enabled = self.firstTextField.text && ![self.firstTextField.text isEqualToString:@""];
-//}
-
-//- (IBAction)firstTextChanged:(id)sender {
-//    [self textChanged];
-//}
+-(void)firstTextFieldChanged:(id)sender{
+    self.loginButton.enabled = self.firstTextField.text && ![self.firstTextField.text isEqualToString:@""];
+}
 
 -(void)buttonClicked:(id)sender{
     [Utils setPass:self.firstTextField.text];
     [self performSegueWithIdentifier:@"ShowSecondLogin" sender:self];
 }
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    LoginSecondVC * vc = segue.destinationViewController;
+    vc.containerCenter = self.containerCenter;
+}
 
-//-(void)updateButtonState{
-//    self.button.hidden = !self.firstTextField.text || [self.firstTextField.text isEqualToString:@""] || ![self.firstTextField.text isEqualToString:self.secondTextField.text];
-//}
-//-(void)textChanged{
-//    [self updateButtonState];
 @end
