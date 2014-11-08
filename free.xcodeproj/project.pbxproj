@@ -970,7 +970,7 @@
 					"$(PROJECT_DIR)",
 				);
 				PRODUCT_NAME = free;
-				PROVISIONING_PROFILE = "52e6036a-8836-49a1-91db-94d5998b9707";
+				PROVISIONING_PROFILE = "aac33d1c-35fc-4c67-ad82-23f507d876c8";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -990,7 +990,7 @@
 					"$(PROJECT_DIR)",
 				);
 				PRODUCT_NAME = free;
-				PROVISIONING_PROFILE = "52e6036a-8836-49a1-91db-94d5998b9707";
+				PROVISIONING_PROFILE = "aac33d1c-35fc-4c67-ad82-23f507d876c8";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
