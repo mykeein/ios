@@ -45,6 +45,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    [NewRelicAgent startWithApplicationToken:@"AAc11ebefd60e91ad400438ffcad69c27e4b4e3d0e"];
     [Utils uuid]; //initializing uuid
     
     if ([[UIApplication sharedApplication] respondsToSelector:@selector(registerUserNotificationSettings:)]) {//ios8

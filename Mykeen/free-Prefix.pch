@@ -15,6 +15,7 @@
 #import "SSKeychain.h"
 #import "GADBannerView.h"
 #import "UIView+Toast.h"
+#import <NewRelicAgent/NewRelic.h>
 
 
 #ifndef __IPHONE_5_0

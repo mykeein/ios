@@ -276,6 +276,7 @@
 		544DD8FB19620FD8004D0125 /* NewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewCell.m; sourceTree = "<group>"; };
 		544DD94119621B6B004D0125 /* Item.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Item.h; sourceTree = "<group>"; };
 		544DD94219621B6B004D0125 /* Item.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Item.m; sourceTree = "<group>"; };
+		549948EE1A20E0F400384F37 /* newrelic_postbuild.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = newrelic_postbuild.sh; sourceTree = "<group>"; };
 		54B820DD197F18A700950904 /* NSData+Crypto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+Crypto.h"; sourceTree = "<group>"; };
 		54B820DE197F18A700950904 /* NSData+Crypto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+Crypto.m"; sourceTree = "<group>"; };
 		54B820E0197F18F100950904 /* NSString+Crypto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Crypto.h"; sourceTree = "<group>"; };
@@ -496,6 +497,7 @@
 				544D975E19562F67006C009B /* InfoPlist.strings */,
 				544D976119562F67006C009B /* main.m */,
 				544D976319562F67006C009B /* Mykeen-Prefix.pch */,
+				549948EE1A20E0F400384F37 /* newrelic_postbuild.sh */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -607,6 +609,7 @@
 				544D974F19562F67006C009B /* Frameworks */,
 				544D975019562F67006C009B /* Resources */,
 				ADBEAA31C4334829B2A095C6 /* Copy Pods Resources */,
+				54FEBE7B1A20BDD80075B938 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -795,6 +798,19 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
+		54FEBE7B1A20BDD80075B938 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "SCRIPT=`/usr/bin/find \"${SRCROOT}\" -name newrelic_postbuild.sh | head -n 1`\n\n/bin/sh \"${SCRIPT}\" \"AAc11ebefd60e91ad400438ffcad69c27e4b4e3d0e\"";
+		};
 		ADBEAA31C4334829B2A095C6 /* Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -970,7 +986,7 @@
 					"$(PROJECT_DIR)",
 				);
 				PRODUCT_NAME = free;
-				PROVISIONING_PROFILE = "aac33d1c-35fc-4c67-ad82-23f507d876c8";
+				PROVISIONING_PROFILE = "8b3e8b29-d286-4c90-8f39-bba5647f9a5b";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -990,7 +1006,7 @@
 					"$(PROJECT_DIR)",
 				);
 				PRODUCT_NAME = free;
-				PROVISIONING_PROFILE = "aac33d1c-35fc-4c67-ad82-23f507d876c8";
+				PROVISIONING_PROFILE = "8b3e8b29-d286-4c90-8f39-bba5647f9a5b";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

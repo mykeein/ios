@@ -14,6 +14,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Pods-NewRelicAgent.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-ObjectiveSugar.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -37,32 +42,37 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>00496F5A291A4EACBCAE5D83</key>
+		<key>642CCD06586F41EB87803460</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>1F43D821458C458192B57467</key>
+		<key>9B83CD1358524613A90931B5</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>4E60DE1F73B046DDA14CF897</key>
+		<key>B4F74A5D7D0E4D8F9A79FB71</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>55AC385369484C588D0D49E0</key>
+		<key>B5BCAF4951384BD6BB02F4BE</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>936077BA130E4872B6E9F469</key>
+		<key>BFCB46BFE454401EAC82DE49</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>95658C1C86FD43BFB564BA18</key>
+		<key>C5B51986782D482B8E817B05</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>D485BAB3DE5B462EB41E5A68</key>
 		<dict>
 			<key>primary</key>
 			<true/>

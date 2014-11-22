@@ -10,8 +10,9 @@
 
 static NSString * ADMOB_UNIT_ID = @"ca-app-pub-1577150706472824/4620795596";
 
-static NSString * MYKEE_URL = @"https://mykee.in";
-//static NSString * MYKEE_URL = "https://localhost:3000";
+//static NSString * MYKEE_URL = @"https://mykee.in";
+static NSString * MYKEE_URL = @"http://192.168.0.107:3000";
+
 
 
 
