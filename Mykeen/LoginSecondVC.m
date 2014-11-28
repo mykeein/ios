@@ -33,6 +33,12 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    if ([[UIApplication sharedApplication] respondsToSelector:@selector(registerUserNotificationSettings:)]) {//ios8
+        UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:(UIUserNotificationTypeBadge | UIUserNotificationTypeSound | UIUserNotificationTypeAlert | UIRemoteNotificationTypeNone) categories:nil];
+        [[UIApplication sharedApplication] registerUserNotificationSettings:settings];
+    }else{
+        [[UIApplication sharedApplication] registerForRemoteNotificationTypes:(UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeNone)];
+    }
     self.containerView.center = !CGPointEqualToPoint(self.containerCenter, CGPointZero) ? self.containerCenter : self.view.center;
     
     [[NSNotificationCenter defaultCenter] addObserver:self

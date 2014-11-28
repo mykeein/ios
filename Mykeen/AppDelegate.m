@@ -16,6 +16,10 @@
 
 @implementation AppDelegate
 
+- (void)application:(UIApplication *)application didRegisterUserNotificationSettings:(UIUserNotificationSettings *)notificationSettings {
+    [application registerForRemoteNotifications];
+}
+
 -(void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error{
     NSLog(@"failed to register for remote notifications");
 }
@@ -28,6 +32,7 @@
                                                                    stringByReplacingOccurrencesOfString:@" "
                                                                    withString:@""]];
     NSLog(@"%@",strDevToken);
+    
     
 //    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@/pushnotification/register?token=%@&uuid=%@&os=ios&lang=%@&v=%@", LIVEWALLS_URL, strDevToken, [self uuid],[[NSLocale preferredLanguages] objectAtIndex:0],kAppVersion]];
 //    
@@ -48,12 +53,8 @@
     [NewRelicAgent startWithApplicationToken:@"AAc11ebefd60e91ad400438ffcad69c27e4b4e3d0e"];
     [Utils uuid]; //initializing uuid
     
-    if ([[UIApplication sharedApplication] respondsToSelector:@selector(registerUserNotificationSettings:)]) {//ios8
-        UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:(UIUserNotificationTypeBadge | UIUserNotificationTypeSound | UIUserNotificationTypeAlert | UIRemoteNotificationTypeNone) categories:nil];
-        [[UIApplication sharedApplication] registerUserNotificationSettings:settings];
-    }else{
-        [[UIApplication sharedApplication] registerForRemoteNotificationTypes:(UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeNone)];
-    }
+    NSLog(@"finishlaunch");
+
 
     // Override point for customization after application launch.
     return YES;
