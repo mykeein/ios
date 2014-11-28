@@ -63,17 +63,11 @@ static NSDateFormatter * rfc3339DateFormatter;
     NSUserDefaults * userDefaults = [NSUserDefaults standardUserDefaults];
     [userDefaults setObject:email forKey:@"email"];
 }
-
-+(NSString*)getNotificationsToken{
++ (void)setUUID:(NSString*)uuid
+{
     NSUserDefaults * userDefaults = [NSUserDefaults standardUserDefaults];
-    NSString * token = [userDefaults objectForKey:@"token"];
-    return token;
+    [userDefaults setObject:uuid forKey:@"uuid"];
 }
-+(void)setNotificationsToken:(NSString*)token{
-    NSUserDefaults * userDefaults = [NSUserDefaults standardUserDefaults];
-    [userDefaults setObject:token forKey:@"token"];
-}
-
 + (NSString *)uuid
 {
     NSUserDefaults * userDefaults = [NSUserDefaults standardUserDefaults];

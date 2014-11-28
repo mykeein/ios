@@ -25,12 +25,11 @@
 }
 - (void)application:(UIApplication *)app didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)devToken {
     NSLog(@"My token is: %@", devToken);
-    NSLog(@"my uuid is: %@",[Utils uuid]);
-    
     NSString *strDevToken = [[NSString alloc]initWithFormat:@"%@",[[[devToken description]
                                                                     stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"<>"]]
                                                                    stringByReplacingOccurrencesOfString:@" "
                                                                    withString:@""]];
+    [Utils setUUID:strDevToken];
     NSLog(@"%@",strDevToken);
     
     

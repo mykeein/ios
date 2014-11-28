@@ -52,6 +52,8 @@
     NSString * reqString = [NSString stringWithFormat:@"%@/api/user/updateemail?os=ios&ln=%@",MYKEE_URL,LANG];
     [manager POST:reqString parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject)
      {
+         [Utils setEmail:self.emailTextField.text];
+
          [Utils setApproved:NO];
 
          NSDictionary *dic = responseObject;

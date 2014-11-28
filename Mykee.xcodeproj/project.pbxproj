@@ -988,7 +988,7 @@
 					"$(PROJECT_DIR)",
 				);
 				PRODUCT_NAME = Mykee;
-				PROVISIONING_PROFILE = "77dde42b-c92a-47e2-935e-a7d8d129d843";
+				PROVISIONING_PROFILE = "295e204e-097e-4a69-80f0-215937354ae8";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -1010,7 +1010,7 @@
 					"$(PROJECT_DIR)",
 				);
 				PRODUCT_NAME = Mykee;
-				PROVISIONING_PROFILE = "77dde42b-c92a-47e2-935e-a7d8d129d843";
+				PROVISIONING_PROFILE = "295e204e-097e-4a69-80f0-215937354ae8";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

@@ -22,10 +22,8 @@
 +(NSString*)getPass;
 +(void)setPass:(NSString*)pass;
 
-+(NSString*)getNotificationsToken;
-+(void)setNotificationsToken:(NSString*)token;
-
 +(NSString *)uuid;
++(void)setUUID:(NSString*)uuid;
 
 + (NSDate *)dateForRFC3339DateTimeString:(NSString *)rfc3339DateTimeString;
 
