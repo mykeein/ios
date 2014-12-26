@@ -19,6 +19,7 @@
 @property NSArray *items;
 @property NSMutableArray *requests;
 
+
 @property BOOL toUpdate;
 @property int updateIndex;
 @property Item * selectedItem;
@@ -180,6 +181,13 @@
     }
     if ([segue.identifier isEqualToString:@"SendVC"]){
         SendViewController *sendVC = segue.destinationViewController;
+        
+        NSIndexPath * indexPath = [self.tableView indexPathForCell:[[[sender superview]superview]superview]]; //ios7
+        NSInteger rowOfTheCell = [indexPath row];
+        
+        NSDictionary * request = self.requests[rowOfTheCell];
+        NSString *requestId = request[@"_id"];
+        sendVC.requestId = requestId;
         sendVC.items = self.items;
     }
 }

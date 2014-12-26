@@ -9,6 +9,7 @@
 #import "SendViewController.h"
 #import "Item.h"
 #import "ItemCell.h"
+#import "NSString+Crypto.h"
 
 
 @interface SendViewController ()<UIActionSheetDelegate>
@@ -68,23 +69,35 @@
     if (actionSheet.cancelButtonIndex == buttonIndex)
         return;
     int index = actionSheet.firstOtherButtonIndex;
-    NSString * toastText;
-    NSString * copy;
+    NSString * data;
     if (buttonIndex == index){
-        copy = self.selectedItem.username;
-        toastText = NSLocalizedString(@"username copied", nil);
+        data = self.selectedItem.username;
     }else if (buttonIndex == ++index){
-        copy = self.selectedItem.password;
-        toastText = NSLocalizedString(@"password copied", nil);
+        data = self.selectedItem.password;
     }else if (buttonIndex == ++index){
-        copy = self.selectedItem.notes;
-        toastText = NSLocalizedString(@"notes copied", nil);
+        data = self.selectedItem.notes;
     }
+    NSString *encryptedData = [data encryptedStringWithPass:[Utils getPass] error:nil];
+    
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    NSDictionary *parameters = @{@"email": [Utils getEmail], @"registerId":[Utils uuid], @"requestId" : self.requestId, @"data": encryptedData};
+    
+    NSLog(@"data %@",data);
+    
+    NSString * reqString = [NSString stringWithFormat:@"%@/api/requests/send?os=ios&ln=%@",MYKEE_URL,LANG];
+    [manager POST:reqString parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject)
+     {
+
+     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+
+     }];
+    
     [self dismissViewControllerAnimated:YES completion:^{
     }];
 }
 
 - (IBAction)cancelButtonAction:(id)sender {
-
+    [self dismissViewControllerAnimated:YES completion:^{
+    }];
 }
 @end
