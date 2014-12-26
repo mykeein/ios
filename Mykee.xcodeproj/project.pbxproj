@@ -118,6 +118,8 @@
 		544DD8F919620FC7004D0125 /* ItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 544DD8F819620FC7004D0125 /* ItemCell.m */; };
 		544DD8FC19620FD8004D0125 /* NewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 544DD8FB19620FD8004D0125 /* NewCell.m */; };
 		544DD94319621B6B004D0125 /* Item.m in Sources */ = {isa = PBXBuildFile; fileRef = 544DD94219621B6B004D0125 /* Item.m */; };
+		545A76C21A2A48D6008D6F0C /* SendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 545A76C11A2A48D6008D6F0C /* SendViewController.m */; };
+		547145DC1A4AF92E00B236E0 /* CancelCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 547145DB1A4AF92E00B236E0 /* CancelCell.m */; };
 		54B820DF197F18A700950904 /* NSData+Crypto.m in Sources */ = {isa = PBXBuildFile; fileRef = 54B820DE197F18A700950904 /* NSData+Crypto.m */; };
 		54B820E2197F18F100950904 /* NSString+Crypto.m in Sources */ = {isa = PBXBuildFile; fileRef = 54B820E1197F18F100950904 /* NSString+Crypto.m */; };
 		54DBAA5F19DEF77F005E596F /* IconVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 54DBAA5E19DEF77F005E596F /* IconVC.m */; };
@@ -276,6 +278,10 @@
 		544DD8FB19620FD8004D0125 /* NewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewCell.m; sourceTree = "<group>"; };
 		544DD94119621B6B004D0125 /* Item.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Item.h; sourceTree = "<group>"; };
 		544DD94219621B6B004D0125 /* Item.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Item.m; sourceTree = "<group>"; };
+		545A76C01A2A48D6008D6F0C /* SendViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SendViewController.h; sourceTree = "<group>"; };
+		545A76C11A2A48D6008D6F0C /* SendViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SendViewController.m; sourceTree = "<group>"; };
+		547145DA1A4AF92E00B236E0 /* CancelCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CancelCell.h; sourceTree = "<group>"; };
+		547145DB1A4AF92E00B236E0 /* CancelCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CancelCell.m; sourceTree = "<group>"; };
 		549948EE1A20E0F400384F37 /* newrelic_postbuild.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = newrelic_postbuild.sh; sourceTree = "<group>"; };
 		54B820DD197F18A700950904 /* NSData+Crypto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+Crypto.h"; sourceTree = "<group>"; };
 		54B820DE197F18A700950904 /* NSData+Crypto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+Crypto.m"; sourceTree = "<group>"; };
@@ -534,6 +540,8 @@
 				54DBAA5D19DEF77F005E596F /* IconVC.h */,
 				54DBAA5E19DEF77F005E596F /* IconVC.m */,
 				544D006D1984345700B338D1 /* SettingsVC.h */,
+				545A76C01A2A48D6008D6F0C /* SendViewController.h */,
+				545A76C11A2A48D6008D6F0C /* SendViewController.m */,
 				544D006E1984345700B338D1 /* SettingsVC.m */,
 				540B15E319CC8873003AE564 /* EmailViewController.h */,
 				540B15E419CC8873003AE564 /* EmailViewController.m */,
@@ -564,6 +572,8 @@
 				544DD8F819620FC7004D0125 /* ItemCell.m */,
 				544DD8FA19620FD8004D0125 /* NewCell.h */,
 				544DD8FB19620FD8004D0125 /* NewCell.m */,
+				547145DA1A4AF92E00B236E0 /* CancelCell.h */,
+				547145DB1A4AF92E00B236E0 /* CancelCell.m */,
 				544DD94119621B6B004D0125 /* Item.h */,
 				544DD94219621B6B004D0125 /* Item.m */,
 				544D006A1984341300B338D1 /* SettingsCell.h */,
@@ -849,7 +859,9 @@
 				54049F48195E0736005DE048 /* Utils.m in Sources */,
 				544D006F1984345700B338D1 /* SettingsVC.m in Sources */,
 				54B820DF197F18A700950904 /* NSData+Crypto.m in Sources */,
+				545A76C21A2A48D6008D6F0C /* SendViewController.m in Sources */,
 				544DD8FC19620FD8004D0125 /* NewCell.m in Sources */,
+				547145DC1A4AF92E00B236E0 /* CancelCell.m in Sources */,
 				540B15E519CC8873003AE564 /* EmailViewController.m in Sources */,
 				544D976619562F67006C009B /* AppDelegate.m in Sources */,
 			);
@@ -988,7 +1000,7 @@
 					"$(PROJECT_DIR)",
 				);
 				PRODUCT_NAME = Mykee;
-				PROVISIONING_PROFILE = "295e204e-097e-4a69-80f0-215937354ae8";
+				PROVISIONING_PROFILE = "77dde42b-c92a-47e2-935e-a7d8d129d843";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -1010,7 +1022,7 @@
 					"$(PROJECT_DIR)",
 				);
 				PRODUCT_NAME = Mykee;
-				PROVISIONING_PROFILE = "295e204e-097e-4a69-80f0-215937354ae8";
+				PROVISIONING_PROFILE = "77dde42b-c92a-47e2-935e-a7d8d129d843";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

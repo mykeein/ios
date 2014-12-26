@@ -11,6 +11,7 @@
 #import "ItemCell.h"
 #import "NewCell.h"
 #import "RequestCell.h"
+#import "SendViewController.h"
 
 @interface MainViewController ()
 
@@ -176,6 +177,10 @@
         n.createItemDelegate = self;
         if (self.toUpdate)
             n.itemToUpdate = self.items[self.updateIndex];
+    }
+    if ([segue.identifier isEqualToString:@"SendVC"]){
+        SendViewController *sendVC = segue.destinationViewController;
+        sendVC.items = self.items;
     }
 }
 
