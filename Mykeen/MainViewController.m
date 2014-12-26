@@ -87,6 +87,7 @@
         cell.ip.text = request[@"ip"];
         NSDate * date = [Utils dateForRFC3339DateTimeString:request[@"updated"]];
         cell.date.text = [date timeAgoSinceNow];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
         return cell;
 
     }
@@ -130,6 +131,9 @@
     [self.tableView makeToast:toastText];
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    if (self.segmentedControl.selectedSegmentIndex == 1){
+        return;
+    }
     NSString * userName = NSLocalizedString(@"Username", nil);
     NSString * password = NSLocalizedString(@"Password", nil);
     NSString * notes = NSLocalizedString(@"Notes", nil);
