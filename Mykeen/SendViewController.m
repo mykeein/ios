@@ -20,6 +20,12 @@
 @end
 @implementation SendViewController
 
+-(void)searchBarSearchButtonClicked:(UISearchBar *)searchBar{
+    [self.searchBar resignFirstResponder];
+}
+-(void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText{
+    [self.tableView reloadData];
+}
 -(NSArray*)filterItemsBySearch{
     NSString * filterString = [NSString stringWithFormat:@"title like '%@*'",self.searchBar.text]; //another option @"title beginswith[c] James" or contains[cd]
     NSPredicate * predicate = [NSPredicate predicateWithFormat:filterString];
@@ -28,18 +34,15 @@
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    if (tableView!=self.tableView){
-        if (![self.searchBar.text isEqualToString:@""])
-            return [[self filterItemsBySearch]count];
-        else
-            return 0;
-    }
-    
-    return [self.items count] + 1;
+    if (![self.searchBar.text isEqualToString:@""])
+        return [[self filterItemsBySearch]count] + 1;
+    else
+        return [self.items count] + 1;
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    if (indexPath.row == self.items.count ) {
+    if (indexPath.row == [self.tableView numberOfRowsInSection:0]-1 ) {
         UITableViewCell * cancellCell = [self.tableView dequeueReusableCellWithIdentifier:@"CancelCell"];
+        cancellCell.selectionStyle = UITableViewCellSelectionStyleNone;
         return cancellCell;
     }
     static NSString* itemCellIdentifier = @"ItemCell";
@@ -53,7 +56,12 @@
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return 44;
 }
+
+
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    if (indexPath.row == self.items.count )
+        return;
+
     NSString * userName = NSLocalizedString(@"Username", nil);
     NSString * password = NSLocalizedString(@"Password", nil);
     NSString * notes = NSLocalizedString(@"Notes", nil);

@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SendViewController : UIViewController <UISearchDisplayDelegate, UITableViewDataSource, UITableViewDelegate>
+@interface SendViewController : UIViewController <UISearchBarDelegate, UITableViewDataSource, UITableViewDelegate>
 
 @property NSArray *items;
 

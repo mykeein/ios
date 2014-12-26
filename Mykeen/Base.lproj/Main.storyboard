@@ -714,9 +714,9 @@
                                 <searchBar key="tableHeaderView" contentMode="redraw" id="xnk-ve-Ymd">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                    <textInputTraits key="textInputTraits"/>
+                                    <textInputTraits key="textInputTraits" returnKeyType="done"/>
                                     <connections>
-                                        <outlet property="delegate" destination="6fw-m4-zUU" id="1zY-6q-neY"/>
+                                        <outlet property="delegate" destination="83d-i9-ULY" id="phb-3o-HJY"/>
                                     </connections>
                                 </searchBar>
                                 <prototypes>
@@ -778,7 +778,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
-                        <outlet property="searchBar" destination="xnk-ve-Ymd" id="aOZ-gR-X93"/>
+                        <outlet property="searchBar" destination="xnk-ve-Ymd" id="br2-ZF-byG"/>
                         <outlet property="tableView" destination="X5D-gs-End" id="4zR-m0-Pq2"/>
                     </connections>
                 </viewController>
