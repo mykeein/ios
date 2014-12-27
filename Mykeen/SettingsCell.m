@@ -10,4 +10,9 @@
 
 @implementation SettingsCell
 
+- (UIEdgeInsets)layoutMargins
+{
+    return UIEdgeInsetsZero;
+}
+
 @end

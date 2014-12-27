@@ -10,4 +10,9 @@
 
 @implementation CancelCell
 
+- (UIEdgeInsets)layoutMargins
+{
+    return UIEdgeInsetsZero;
+}
+
 @end

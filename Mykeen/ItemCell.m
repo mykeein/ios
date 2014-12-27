@@ -10,5 +10,9 @@
 
 @implementation ItemCell
 
+- (UIEdgeInsets)layoutMargins
+{
+    return UIEdgeInsetsZero;
+}
 
 @end

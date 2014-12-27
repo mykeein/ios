@@ -10,4 +10,8 @@
 
 @implementation MyPersonalLinkCell
 
+- (UIEdgeInsets)layoutMargins
+{
+    return UIEdgeInsetsZero;
+}
 @end

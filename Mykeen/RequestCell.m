@@ -10,5 +10,9 @@
 
 @implementation RequestCell
 
+- (UIEdgeInsets)layoutMargins
+{
+    return UIEdgeInsetsZero;
+}
 
 @end
