@@ -48,6 +48,11 @@
 -(void)viewDidLoad{
     [super viewDidLoad];
     
+    self.emailLabel.text = NSLocalizedString(@"Email", @"on settings view");
+    [self.changeButton setTitle:NSLocalizedString(@"Change", @"change email button on settings view") forState:UIControlStateNormal];
+    NSString * notApprovedString = NSLocalizedString(@"notApproved", nil);
+    [self.notApprovedButton setTitle:notApprovedString forState:UIControlStateNormal];
+    
     self.notApprovedButton.hidden = YES;
     NSString * email = [Utils getEmail];
     if (!email){
@@ -68,7 +73,8 @@
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     if ([segue.identifier isEqualToString:@"Email"]){
-        //EmailViewController * c = segue.destinationViewController;
+        EmailViewController * c = segue.destinationViewController;
+        c.notApprovedButton = self.notApprovedButton;
     }
 }
 - (IBAction)notApprovedButtonClicked:(id)sender {

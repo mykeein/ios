@@ -15,4 +15,6 @@
 - (IBAction)saveAction:(id)sender;
 - (IBAction)cancelAction:(id)sender;
 
+@property (weak, nonatomic) IBOutlet UIButton *notApprovedButton;
+
 @end

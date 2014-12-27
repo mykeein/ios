@@ -30,4 +30,10 @@
 - (IBAction)sendRequestAction:(id)sender;
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 
+
+@property (weak, nonatomic) IBOutlet UILabel *noEmailTitle;
+@property (weak, nonatomic) IBOutlet UITextView *noEmailDescription;
+@property (weak, nonatomic) IBOutlet UIButton *noEmailSettingsButton;
+
+
 @end

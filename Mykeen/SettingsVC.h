@@ -14,5 +14,9 @@
 - (IBAction)notApprovedButtonClicked:(id)sender;
 
 @property (weak, nonatomic) IBOutlet UIButton *notApprovedButton;
+@property (weak, nonatomic) IBOutlet UIButton *changeButton;
+@property (weak, nonatomic) IBOutlet UILabel *emailLabel;
+
+
 
 @end

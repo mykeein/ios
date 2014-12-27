@@ -15,6 +15,9 @@
 @implementation EmailViewController
 
 -(void)viewDidLoad{
+    self.emailTextField.placeholder = NSLocalizedString(@"your email", nil);
+    [self.cancelButton setTitle:NSLocalizedString(@"Cancel", nil) forState:UIControlStateNormal];
+    [self.saveButton setTitle:NSLocalizedString(@"Save", nil) forState:UIControlStateNormal];
     self.emailTextField.text = [Utils getEmail];
     [self.emailTextField becomeFirstResponder];
 }
@@ -38,6 +41,8 @@
          }else{
              UIAlertView * alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"pleaseApproveTitle", nil) message:nil delegate:nil cancelButtonTitle:NSLocalizedString(@"pleaseApproveOk", nil) otherButtonTitles:nil, nil];
              [alert show];
+             NSString * notApprovedString = NSLocalizedString(@"notApproved", nil);
+             [self.notApprovedButton setTitle:notApprovedString forState:UIControlStateNormal];
          }
      } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
          NSLog(@"Error: %@", error);
@@ -64,6 +69,8 @@
          }else{
              UIAlertView * alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"pleaseApproveTitle", nil) message:nil delegate:nil cancelButtonTitle:NSLocalizedString(@"pleaseApproveOk", nil) otherButtonTitles:nil, nil];
              [alert show];
+             NSString * notApprovedString = NSLocalizedString(@"notApproved", nil);
+             [self.notApprovedButton setTitle:notApprovedString forState:UIControlStateNormal];
          }
          
          NSLog(@"updateEmail %@", dic);

@@ -11,6 +11,7 @@
 		54049F48195E0736005DE048 /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 54049F47195E0736005DE048 /* Utils.m */; };
 		540B15E519CC8873003AE564 /* EmailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 540B15E419CC8873003AE564 /* EmailViewController.m */; };
 		542816DD196A0BC900B88CF2 /* NewItemVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 542816DC196A0BC900B88CF2 /* NewItemVC.m */; };
+		542A1EB91A4F473300552D9C /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 542A1EB81A4F473300552D9C /* Localizable.strings */; };
 		5441A0C219953F700003BB39 /* action_search.png in Resources */ = {isa = PBXBuildFile; fileRef = 5441A07019953F700003BB39 /* action_search.png */; };
 		5441A0C319953F700003BB39 /* backup.png in Resources */ = {isa = PBXBuildFile; fileRef = 5441A07119953F700003BB39 /* backup.png */; };
 		5441A0C419953F700003BB39 /* create_ticket.png in Resources */ = {isa = PBXBuildFile; fileRef = 5441A07219953F700003BB39 /* create_ticket.png */; };
@@ -158,6 +159,7 @@
 		540B15E419CC8873003AE564 /* EmailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EmailViewController.m; sourceTree = "<group>"; };
 		542816DB196A0BC900B88CF2 /* NewItemVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewItemVC.h; sourceTree = "<group>"; };
 		542816DC196A0BC900B88CF2 /* NewItemVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewItemVC.m; sourceTree = "<group>"; };
+		542A1EB81A4F473300552D9C /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		5441A07019953F700003BB39 /* action_search.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = action_search.png; sourceTree = "<group>"; };
 		5441A07119953F700003BB39 /* backup.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = backup.png; sourceTree = "<group>"; };
 		5441A07219953F700003BB39 /* create_ticket.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = create_ticket.png; sourceTree = "<group>"; };
@@ -504,6 +506,7 @@
 				544D975419562F67006C009B /* Frameworks */,
 				544D975D19562F67006C009B /* Mykee-Info.plist */,
 				544D975E19562F67006C009B /* InfoPlist.strings */,
+				542A1EB81A4F473300552D9C /* Localizable.strings */,
 				544D976119562F67006C009B /* main.m */,
 				544D976319562F67006C009B /* Mykeen-Prefix.pch */,
 				549948EE1A20E0F400384F37 /* newrelic_postbuild.sh */,
@@ -780,6 +783,7 @@
 				5441A10A19953F700003BB39 /* password.png in Resources */,
 				5441A0CB19953F700003BB39 /* ic_launcher.png in Resources */,
 				5441A10F19953F700003BB39 /* type_check_failed.png in Resources */,
+				542A1EB91A4F473300552D9C /* Localizable.strings in Resources */,
 				5441A0DC19953F700003BB39 /* icon_17.png in Resources */,
 				5441A0EE19953F700003BB39 /* icon_35.png in Resources */,
 				5441A0F719953F700003BB39 /* icon_44.png in Resources */,
@@ -995,7 +999,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Nickolay Vasyukov (654Y4Q74R4)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Nickolay Vasyukov (654Y4Q74R4)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Mykeen/Mykee-Prefix.pch";
@@ -1006,7 +1010,7 @@
 					"$(PROJECT_DIR)",
 				);
 				PRODUCT_NAME = Mykee;
-				PROVISIONING_PROFILE = "77dde42b-c92a-47e2-935e-a7d8d129d843";
+				PROVISIONING_PROFILE = "a1d084c5-23c7-4b24-8a1c-c614a92c4c4d";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -1017,7 +1021,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Nickolay Vasyukov (654Y4Q74R4)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Nickolay Vasyukov (654Y4Q74R4)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Mykeen/Mykee-Prefix.pch";
@@ -1028,7 +1032,7 @@
 					"$(PROJECT_DIR)",
 				);
 				PRODUCT_NAME = Mykee;
-				PROVISIONING_PROFILE = "77dde42b-c92a-47e2-935e-a7d8d129d843";
+				PROVISIONING_PROFILE = "a1d084c5-23c7-4b24-8a1c-c614a92c4c4d";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

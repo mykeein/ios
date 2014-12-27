@@ -37,6 +37,12 @@
     }
 }
 -(void)viewDidLoad{
+    self.noEmailTitle.text = NSLocalizedString(@"Please Complete Email Settings",nil);
+    self.noEmailDescription.text = NSLocalizedString(@"For using requests by personal link, you must complete your email settings",nil);
+    self.noEmailDescription.font = [UIFont systemFontOfSize:14];
+    self.noEmailDescription.textAlignment = NSTextAlignmentCenter;
+    [self.noEmailSettingsButton setTitle:NSLocalizedString(@"Settings",nil) forState:UIControlStateNormal];
+    
     [self showBanner];
     self.noEmailView.hidden = YES;
     
@@ -357,6 +363,8 @@
         item.username = @"mymail@email.com";
         item.password = @"Password123";
         item.notes = NSLocalizedString(@"notes about this key example", nil);
+        item.iconImageName = @"icon_13";
+
         [self saveItemToDisk:item];
         return [self loadItemsFromDisk];
     }

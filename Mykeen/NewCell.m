@@ -14,5 +14,8 @@
 {
     return UIEdgeInsetsZero;
 }
+-(void)awakeFromNib{
+    [self.button setTitle:NSLocalizedString(@"New", nil) forState:UIControlStateNormal];
+}
 
 @end

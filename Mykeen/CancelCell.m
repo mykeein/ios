@@ -15,4 +15,8 @@
     return UIEdgeInsetsZero;
 }
 
+-(void)awakeFromNib{
+    [self.button setTitle:NSLocalizedString(@"Cancel", nil) forState:UIControlStateNormal];
+}
+
 @end

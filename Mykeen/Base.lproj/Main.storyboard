@@ -388,7 +388,7 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="nQX-d7-H76">
-                                        <rect key="frame" x="8" y="12" width="42" height="21"/>
+                                        <rect key="frame" x="8" y="12" width="64" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -402,6 +402,8 @@
                     </view>
                     <navigationItem key="navigationItem" title="Settings" id="JIG-lb-dPT"/>
                     <connections>
+                        <outlet property="changeButton" destination="PfR-P1-Mpm" id="KLN-3n-V6d"/>
+                        <outlet property="emailLabel" destination="nQX-d7-H76" id="Glc-Ts-KSy"/>
                         <outlet property="notApprovedButton" destination="p4Q-sG-9pn" id="16e-8j-avT"/>
                     </connections>
                 </viewController>
@@ -724,6 +726,9 @@
                     </navigationItem>
                     <connections>
                         <outlet property="bannerContainerView" destination="O8Y-Ew-CmV" id="aC5-RA-DGE"/>
+                        <outlet property="noEmailDescription" destination="DYk-Pa-xbr" id="Ij5-ix-Kl0"/>
+                        <outlet property="noEmailSettingsButton" destination="22E-nf-Z0N" id="7A7-ZU-yIl"/>
+                        <outlet property="noEmailTitle" destination="qmj-oM-eZb" id="CN4-Ok-Mx9"/>
                         <outlet property="noEmailView" destination="Xpo-xf-fBT" id="AT8-78-Uxn"/>
                         <outlet property="searchBar" destination="SNt-Mg-BjV" id="w55-mv-AmM"/>
                         <outlet property="searchDisplayController" destination="MKL-2O-82K" id="751-Uu-wpL"/>
