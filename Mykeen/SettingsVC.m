@@ -10,7 +10,7 @@
 #import "SettingsCell.h"
 #import "EmailViewController.h"
 
-@interface SettingsVC ()
+@interface SettingsVC () <UIAlertViewDelegate>
 
 @property (nonatomic, retain) GADBannerView *bannerView;
 
@@ -28,12 +28,12 @@
          if ([responseObject[@"status"] isEqualToString:@"send_approve_email_failed"]){
              [Utils setApproved:NO];
              NSString * wrongEmailString = NSLocalizedString(@"failedToSendApprovalEmail", nil);
-             self.notApprovedButton.titleLabel.text = wrongEmailString;
+             [self.notApprovedButton setTitle:wrongEmailString forState:UIControlStateNormal];
              self.notApprovedButton.hidden = NO;
          }else if([responseObject[@"status"] isEqualToString:@"not_approved"]){
              [Utils setApproved:NO];
              NSString * notApprovedString = NSLocalizedString(@"notApproved", nil);
-             self.notApprovedButton.titleLabel.text = notApprovedString;
+             [self.notApprovedButton setTitle:notApprovedString forState:UIControlStateNormal];
              self.notApprovedButton.hidden = NO;
          }else if ([responseObject[@"status"] isEqualToString:@"success"]){
              [Utils setApproved:YES];
@@ -68,13 +68,41 @@
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     if ([segue.identifier isEqualToString:@"Email"]){
-        EmailViewController * c = segue.destinationViewController;
-        NSLog(@"dsfdsf");
+        //EmailViewController * c = segue.destinationViewController;
     }
 }
 - (IBAction)notApprovedButtonClicked:(id)sender {
     if (![Utils getEmail])
         [self performSegueWithIdentifier:@"Email" sender:self];
+    else{
+        NSString * title = NSLocalizedString(@"Email Was Not Approved", nil);
+        NSString * description = NSLocalizedString(@"Please approve email received from 'mykee.in support' - Did not receive?", nil);
+        NSString * sendAgain = NSLocalizedString(@"Send again", nil);
+        NSString * cancel = NSLocalizedString(@"Cancel", nil);
+        UIAlertView * alert = [[UIAlertView alloc]initWithTitle:title message:description delegate:self cancelButtonTitle:cancel otherButtonTitles:sendAgain, nil];
+        [alert show];
+    }
+}
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    if (buttonIndex==alertView.cancelButtonIndex)
+        return;
+    else{
+        [self sendEmail];
+    }
+}
+-(void)sendEmail{
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    NSDictionary *parameters = @{@"newEmail": [Utils getEmail],
+                                 @"registerId":[Utils uuid],
+                                 @"oldEmail":[Utils getEmail]};
+    
+    NSString * reqString = [NSString stringWithFormat:@"%@/api/user/updateemail?os=ios&ln=%@",MYKEE_URL,LANG];
+    [manager POST:reqString parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject)
+     {
+
+     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+         NSLog(@"Error: %@", error);
+     }];
 }
 -(void)showBanner{
     // Create a view of the standard size at the top of the screen.

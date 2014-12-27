@@ -351,6 +351,15 @@
     //[[NSFileManager defaultManager] removeItemAtPath:path error:nil]; //testing
 
     NSData * data = [NSData dataWithContentsOfFile:path];
+    if (!data){
+        Item * item = [[Item alloc] init];
+        item.title = NSLocalizedString(@"Key Example", nil);
+        item.username = @"mymail@email.com";
+        item.password = @"Password123";
+        item.notes = NSLocalizedString(@"notes about this key example", nil);
+        [self saveItemToDisk:item];
+        return [self loadItemsFromDisk];
+    }
     NSData * decodedData = [data decryptedDataWithPass:[Utils getPass] error:nil];
     NSArray *arr = [NSKeyedUnarchiver unarchiveObjectWithData:decodedData];
 
