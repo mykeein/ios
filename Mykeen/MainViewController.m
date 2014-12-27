@@ -12,6 +12,7 @@
 #import "NewCell.h"
 #import "RequestCell.h"
 #import "SendViewController.h"
+#import "MyPersonalLinkCell.h"
 
 @interface MainViewController ()
 
@@ -19,7 +20,7 @@
 @property NSArray *items;
 @property NSMutableArray *requests;
 
-
+@property BOOL loaded;
 @property BOOL toUpdate;
 @property int updateIndex;
 @property Item * selectedItem;
@@ -66,6 +67,12 @@
     NSArray * result = [self.items filteredArrayUsingPredicate:predicate];
     return result;
 }
+-(BOOL)noRequests{
+    if (self.loaded && self.requests.count == 0)
+        return YES;
+    else
+        return NO;
+}
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     if (tableView!=self.tableView){
         if (![self.searchBar.text isEqualToString:@""])
@@ -74,13 +81,22 @@
             return 0;
     }
     
-    if (self.segmentedControl.selectedSegmentIndex == 1)
+    if (self.segmentedControl.selectedSegmentIndex == 1){
+        if ([self noRequests])
+            return 1;
+        
         return [self.requests count];
+    }
     
     return [self.items count] + 1;
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     if (self.segmentedControl.selectedSegmentIndex == 1){
+        if ([self noRequests] && indexPath.row==0){
+            MyPersonalLinkCell * cell = [self.tableView dequeueReusableCellWithIdentifier:@"MyPersonalLinkCell"];
+            [cell.linkButton setTitle:[self urlString] forState:UIControlStateNormal];
+            return cell;
+        }
         static NSString* requestCellIdentifier = @"RequestCell";
         RequestCell * cell = [tableView dequeueReusableCellWithIdentifier:requestCellIdentifier];
         NSDictionary * request = self.requests[indexPath.row];
@@ -130,8 +146,18 @@
     pasteboard.string = copy;
     [self.tableView makeToast:toastText];
 }
+-(NSString*)urlString{
+    return [NSString stringWithFormat:@"%@/%@",MYKEE_URL,[Utils getEmail]];
+}
+-(IBAction)linkClicked:(id)sender{
+    NSURL *url = [NSURL URLWithString:[self urlString]];
+    [[UIApplication sharedApplication] openURL:url];
+}
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     if (self.segmentedControl.selectedSegmentIndex == 1){
+        if ([self noRequests]){
+            [self linkClicked:tableView];
+        }
         return;
     }
     NSString * userName = NSLocalizedString(@"Username", nil);
@@ -222,6 +248,7 @@
 }
 - (IBAction)segmentChanged:(id)sender {
     if ([self.segmentedControl selectedSegmentIndex] == 1) {
+        self.loaded = NO;
         [self.tableView setTableHeaderView:nil];
         [self.tableView reloadData];
         if (![Utils getApproved]){
@@ -334,13 +361,14 @@
         //TODO concurrent
         return;
     }
-    
+    self.loaded = NO;
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     NSDictionary *parameters = @{@"email": [Utils getEmail], @"registerId":[Utils uuid]};
     
     NSString * reqString = [NSString stringWithFormat:@"%@/api/requests/load?os=ios&ln=%@",MYKEE_URL,LANG];
     [manager POST:reqString parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject)
      {
+         self.loaded = YES;
          self.requests = [responseObject mutableCopy];
          [self.tableView reloadData];
          if ([self.segmentedControl selectedSegmentIndex] == 1) {
@@ -368,8 +396,8 @@
     [manager POST:reqString parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject)
      {
          [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(loadRequestsAndReloadTheTable) object:nil];
-         [self.requests removeObjectAtIndex:rowOfTheCell];
-         [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+         //[self.requests removeObjectAtIndex:rowOfTheCell];
+         //[self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
          [self loadRequestsAndReloadTheTable];
      } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
          NSLog(@"Error: %@", error);
@@ -379,4 +407,5 @@
 
 - (IBAction)sendRequestAction:(id)sender {
 }
+
 @end

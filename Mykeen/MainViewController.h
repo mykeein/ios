@@ -10,6 +10,7 @@
 #import "NewItemVC.h"
 
 @interface MainViewController : UIViewController <UISearchDisplayDelegate, UITableViewDataSource, UITableViewDelegate, CreateItemDelegate,UIActionSheetDelegate>
+- (IBAction)linkClicked:(id)sender;
 
 @property (weak, nonatomic) IBOutlet UIView *bannerContainerView;
 - (IBAction)swipeLeft:(id)sender;
